@@ -1,8 +1,30 @@
 <template>
+  <b-card>
 
-  <b-card
-    title="Llene todos los campos para levantar una queja a una Empresa de Seguridad Privada"
-  >
+    <b-row>
+      <b-col>
+        <b-img
+          :src="require('@/assets/images/icons/images.png')"
+          alt="Image 1"
+          :height="40"
+        />
+        <b-img
+          :src="require('/home/delfin/Documentos/proyectosVue/pruebaVue/src/assets/images/icons/index.jpeg')"
+          alt="Image 1"
+          :height="40"
+        />
+        <a href="#">Seguridad Privada</a>
+        <a href="#">Buzón de quejas</a>
+        <a href="#">Estrado Electrónico</a>
+      </b-col>
+    </b-row>
+    <div
+      class="p-3 mb-2 bg-success  color = red"
+    >
+      <h1>Buzón de quejas</h1>
+    </div>
+    <label class="delfin">Llene todos los campos para levantar una queja a una Empresa de Seguridad Privada</label>
+
     <b-form-group>
       <b-row>
         <b-col md="6">
@@ -22,32 +44,35 @@
           />
         </b-col>
       </b-row>
-      <label>Descripción de los hechos</label>
+      <b-row>
+        <!-- nombre -->
+        <b-col md="12">
+          <label>Descripción de los hechos</label>
+          <b-form-input
+            v-model="userEmail"
+            placeholder="Selecciona un documento y arrastra aqui..."
+          />
+        </b-col></b-row>
+      <b-row>
+        <b-col md="12">
+          <div>
+            <label class="apartado">Apartado para adjuntar pruebas (fotos, documentos, etc)</label>
+            <!-- Styled -->
+            <b-form-file
+              v-model="file"
+              placeholder="Selecciona un documento y arrastra aqui..."
+            />
+          </div>
+        </b-col></b-row>
       <b-col md="12">
+        <label>Lugar de los hechos</label>
+
         <!-- nombre -->
         <b-form-input
           v-model="userEmail"
-          placeholder="Selecciona un documento y arrastra aqui..."
+          placeholder="Introduce el lugar de los hechos"
         />
       </b-col>
-      <div>
-        <label>Apartado para adjuntar pruebas (fotos, documentos, etc)</label>
-        <!-- Styled -->
-        <b-form-file
-          v-model="file"
-          placeholder="Selecciona un documento y arrastra aqui..."
-        />
-      </div>
-      <b-row>
-        <label>Lugar de los hechos</label>
-        <b-col md="12">
-          <!-- nombre -->
-          <b-form-input
-            v-model="userEmail"
-            placeholder="Introduce el lugar de los hechos"
-          />
-        </b-col>
-      </b-row>
       <b-row>
         <b-col md="4">
           <label>Nombre de la empresa de seguridad privada</label>
@@ -65,7 +90,7 @@
         <b-col md="4">
           <!-- nombre -->
           <div>
-            <label>Croquis de la oficina o lugar dobde ocurrieron los hechos)</label>
+            <label>Croquis de la oficina o lugar donde ocurrieron los hechos)</label>
             <b-col md="6" />
             <!-- Styled -->
             <b-form-file
@@ -75,29 +100,42 @@
           </div>
         </b-col>
       </b-row>
+      <b-row>
+
+        <b-button
+          class="Buzón"
+          variant="outline-danger"
+          align-h="center"
+        >
+          Consulta de aviso de privacidad
+        </b-button>
+      </b-row>
       <b-row align-h="center">
-        <b-col md="4 mt-3">
-          <b-butto>Consulta el aviso de privacidad
-            <b-form-checkbox
-              id="checkbox-1"
-              v-model="status"
-              name="checkbox-1"
-              value="accepted"
-            >Acepto de aviso de privacidad
-            </b-form-checkbox>
-            <div class="mt-3 mr-4 ml-3">
+        <b-col md="mt-3">
+          <b-form-checkbox
+            v-model="status"
+            name="checkbox-1"
+            value="accepted"
+          >Acepto de aviso de privacidad
+          </b-form-checkbox>
+          <div class="mt-3 mr-4 ml-3">
+            <b-row align-h="center">
+              <b-col md="6" />
               <b-button
                 variant="success"
-              >Enviar <b-row align-h="center">
-                <b-col md="6" />
-              </b-row></b-button>
-            </div> </b-butto></b-col>
+                align-h="center"
+              >
+                Enviar</b-button>
+            </b-row>
+          </div>
+        </b-col>
       </b-row>
     </b-form-group>
   </b-card>
 </template>
 
 <script>
+
 import {
   BCard,
   BFormInput,
@@ -106,7 +144,11 @@ import {
   BCol,
   BRow,
   BFormFile,
+  BImg,
   BButton,
+  // BAlert,
+  // BContainer,
+
 } from 'bootstrap-vue'
 
 export default {
@@ -118,11 +160,16 @@ export default {
     BCol,
     BRow,
     BFormFile,
+    BImg,
     BButton,
+    // BAlert,
+    // BContainer,
+
   },
 
   data() {
     return {
+      status: null,
       file: null,
       userEmail: null,
     }
@@ -130,5 +177,15 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
+.delfin{
+  font-size: 30px;
+.Buzón{
+  font-size: 30px;
+
+  }
+
+}
+
 </style>

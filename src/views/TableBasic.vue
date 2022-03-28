@@ -1,21 +1,29 @@
 <template>
-  <b-table
-    responsive
-    :items="items"
-    :fields="fields"
-    class="mb-0"
-  >
-    <template #cell(Phone)="data">
-      <span class="text-nowrap">
-        {{ data.value }}
-      </span>
-    </template>
+  <div>
+    <a
+      href="#inicio"
+      class="link"
+    />
+    <label for="" />
+    Estrado Electrónico
+    <b-table
+      responsive
+      :items="items"
+      :fields="fields"
+      class="mb-0"
+    >
+      <template #cell(Phone)="data">
+        <span class="text-nowrap">
+          {{ data.value }}
+        </span>
+      </template>
 
-    <!-- Optional default data cell scoped slot -->
-    <template #cell()="data">
-      {{ data.value }}
-    </template>
-  </b-table>
+      <!-- Optional default data cell scoped slot -->
+      <template #cell()="data">
+        {{ data.value }}
+      </template>
+    </b-table>
+  </div>
 </template>
 
 <script>
@@ -24,6 +32,7 @@ import { BTable } from 'bootstrap-vue'
 export default {
   components: {
     BTable,
+
   },
   data() {
     return {
@@ -103,3 +112,6 @@ export default {
   },
 }
 </script>
+<style>
+
+</style>
