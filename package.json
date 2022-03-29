@@ -23,6 +23,7 @@
     "axios-mock-adapter": "1.19.0",
     "bootstrap": "4.5.2",
     "bootstrap-vue": "2.21.1",
+    "calendar.vue": "^0.0.1",
     "chart.js": "2.9.4",
     "core-js": "3.8.1",
     "echarts": "4.8.0",

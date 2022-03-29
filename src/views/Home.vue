@@ -2,8 +2,8 @@
   <div>
     <b-card title="Sistema de Seguridad Privada ">
       <b-card title="Estrado Electrònico Buzòn de Quejas">
-
         <table-basic />
+        <footer />
       </b-card>
     </b-card></div>
 </template>
@@ -16,7 +16,6 @@ export default {
   components: {
     BCard,
     TableBasic,
-
   },
 }
 </script>

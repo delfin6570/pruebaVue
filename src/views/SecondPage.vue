@@ -1,6 +1,6 @@
 <template>
-
   <b-card
+    class="delfin"
     title="Llene todos los campos para levantar una queja a una Empresa de Seguridad Privada"
   >
     <b-form-group>
@@ -30,14 +30,13 @@
           placeholder="Selecciona un documento y arrastra aqui..."
         />
       </b-col>
-      <div>
-        <label>Apartado para adjuntar pruebas (fotos, documentos, etc)</label>
-        <!-- Styled -->
-        <b-form-file
-          v-model="file"
-          placeholder="Selecciona un documento y arrastra aqui..."
-        />
-      </div>
+      <label>Apartado para adjuntar pruebas (fotos, documentos, etc)</label>
+      <!-- Styled -->
+      <b-form-file
+        v-model="file"
+        placeholder="Selecciona un documento y arrastra aqui..."
+      />
+
       <b-row>
         <label>Lugar de los hechos</label>
         <b-col md="12">
@@ -64,20 +63,19 @@
         </b-col>
         <b-col md="4">
           <!-- nombre -->
-          <div>
-            <label>Croquis de la oficina o lugar dobde ocurrieron los hechos)</label>
-            <b-col md="6" />
-            <!-- Styled -->
-            <b-form-file
-              v-model="file"
-              placeholder="Selecciona un documento y arrastra aqui..."
-            />
-          </div>
+
+          <label>Croquis de la oficina o lugar dobde ocurrieron los hechos)</label>
+          <b-col md="6" />
+          <!-- Styled -->
+          <b-form-file
+            v-model="file"
+            placeholder="Selecciona un documento y arrastra aqui..."
+          />
         </b-col>
       </b-row>
       <b-row align-h="center">
-        <b-col md="4 mt-3">
-          <b-butto>Consulta el aviso de privacidad
+        <b-col md="mt-3">
+          <b-button>Consulta el aviso de privacidad
             <b-form-checkbox
               id="checkbox-1"
               v-model="status"
@@ -87,11 +85,12 @@
             </b-form-checkbox>
             <div class="mt-3 mr-4 ml-3">
               <b-button
+                class="boton"
                 variant="success"
-              >Enviar <b-row align-h="center">
-                <b-col md="6" />
-              </b-row></b-button>
-            </div> </b-butto></b-col>
+              >Enviar
+                <b-row align-h="center">
+                  <b-col md="6" /> </b-row></b-button>
+            </div> </b-button></b-col>
       </b-row>
     </b-form-group>
   </b-card>
@@ -125,10 +124,17 @@ export default {
     return {
       file: null,
       userEmail: null,
+      status: null,
+      footer: null,
     }
   },
 }
 </script>
 
 <style lang="scss">
+.card {
+  font-size: 16px;
+  font-weight: 600;
+  color: red;
+}
 </style>
