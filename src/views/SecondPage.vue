@@ -118,6 +118,7 @@
             <b-row align-h="center">
               <b-col md="6" />
               <b-button
+                class="boton"
                 variant="success"
                 align-h="center"
               >
@@ -181,6 +182,7 @@ export default {
       status: null,
       file: null,
       userEmail: null,
+      footer: null,
     }
   },
 }
