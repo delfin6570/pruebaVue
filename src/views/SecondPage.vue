@@ -1,6 +1,5 @@
 <template>
   <b-card>
-
     <b-row>
       <b-col>
         <b-img
@@ -89,15 +88,13 @@
         </b-col>
         <b-col md="4">
           <!-- nombre -->
-          <div>
-            <label>Croquis de la oficina o lugar donde ocurrieron los hechos)</label>
-            <b-col md="6" />
-            <!-- Styled -->
-            <b-form-file
-              v-model="file"
-              placeholder="Selecciona un documento y arrastra aqui..."
-            />
-          </div>
+          <label>Croquis de la oficina o lugar donde ocurrieron los hechos)</label>
+          <b-col md="6" />
+          <!-- Styled -->
+          <b-form-file
+            v-model="file"
+            placeholder="Selecciona un documento y arrastra aqui..."
+          />
         </b-col>
       </b-row>
       <b-row>
@@ -106,8 +103,7 @@
           class="Buzón"
           variant="outline-danger"
           align-h="center"
-        >
-          Consulta de aviso de privacidad
+        >Consulta de aviso de privacidad
         </b-button>
       </b-row>
       <b-row align-h="center">
@@ -126,12 +122,23 @@
                 align-h="center"
               >
                 Enviar</b-button>
+              <div>
+                <b-card
+                  footer="Card Footer"
+                  footer-tag="footer"
+                  footer-bg-variant="danger"
+                  footer-border-variant=""
+                  title=""
+                  style="max-width: 20rem;"
+                />
+              </div>
             </b-row>
           </div>
         </b-col>
       </b-row>
     </b-form-group>
   </b-card>
+
 </template>
 
 <script>
@@ -146,6 +153,7 @@ import {
   BFormFile,
   BImg,
   BButton,
+  // BNnavbar,
   // BAlert,
   // BContainer,
 
@@ -162,6 +170,7 @@ export default {
     BFormFile,
     BImg,
     BButton,
+    // BNnavbar,
     // BAlert,
     // BContainer,
 

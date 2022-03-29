@@ -2,7 +2,8 @@
   <div>
     <b-card title=" ">
       <b-card title="">
-
+        <b-card-title />
+        <b-card-text />
         <table-basic />
         <secon-page />
       </b-card>
@@ -17,6 +18,7 @@ export default {
   components: {
     BCard,
     TableBasic,
+
   },
 }
 </script>
