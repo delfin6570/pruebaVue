@@ -1,8 +1,6 @@
 <template>
   <div>
     <encabezado />
-    <br>
-    <br>
     <buzon />
     <formulario />
     <pie-pagina />

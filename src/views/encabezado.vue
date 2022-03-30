@@ -1,21 +1,75 @@
 <template>
-  <b-row>
-    <b-col>
-      <b-img
-        :src="require('@/imagenes/images.png')"
-        alt="Image 1"
-        :height="40"
-      />
-      <b-img
-        :src="require('@/imagenes/index.jpeg')"
-        alt="Image 1"
-        :height="40"
-      />
-      <a href="#">Seguridad Privada</a>
-      <a href="#">Buzón de quejas</a>
-      <a href="#">Estrado Electrónico</a>
-    </b-col>
-  </b-row>
+  <div class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-logo">
+          <a href="#inicio">
+            <b-img
+              :src="require('@/imagenes/cdmx-ssc-color.svg')"
+              alt="Image 1"
+              :height="40"
+            />
+          </a>
+        </div>
+        <div class="header-menu">
+          <ul>
+            <a
+              href="#inicio"
+              class="link"
+            >
+              <li>
+                Seguridad Privada
+              </li>
+            </a>
+            <a
+              href="#inicio"
+              class="link"
+            >
+              <li>
+                Buzón de Quejas
+              </li>
+            </a>
+            <a
+              href="#inicio"
+              class="link"
+            >
+              <li>
+                Estrado Electrónico
+              </li>
+            </a>
+          </ul>
+        </div>
+        <div class="header-icon">
+          <i
+            id="menu"
+            class="fas fa-bars"
+          />
+        </div>
+        <div class="responsive-header-menu">
+          <ul>
+            <li>
+              <a
+                href="#inicio"
+                class="link movement"
+              >Seguridad Privada</a>
+            </li>
+            <li>
+              <a
+                href="#inicio"
+                class="link movement"
+              >Buzón de Quejas</a>
+            </li>
+            <li>
+              <a
+                href="#quienes-somos"
+                class="link movement"
+              >Estrado Electrónico</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 
@@ -38,10 +92,113 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .delfin{
-        font-size: 30px;
-    }
-    .Buzón{
-        font-size: 30px;
-    }
+
+.header-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header-content .header-logo {
+  width: 300px;
+}
+.header-menu {
+  width: 100%;
+}
+.header-menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  height: 80px;
+}
+.header-menu ul a {
+  margin-right: 30px;
+  padding: 2px 0;
+  border-bottom: 2px solid white;
+  -webkit-transition: 0.2s ease-in-out all;
+  transition: 0.2s ease-in-out all;
+  text-decoration: none;
+  color: gray;
+}
+.header-menu ul a li {
+  font-weight: 600;
+  font-size: 10.8px;
+  -webkit-transition: 0.2s ease-in-out all;
+  transition: 0.2s ease-in-out all;
+}
+.header-menu ul a:hover {
+  border-bottom: 2px solid #235B4E;
+  color: #235B4E;
+}
+.header-menu ul a:last-child {
+  margin-right: 0;
+}
+.header-menu ul li:last-child {
+  margin-right: 0;
+}
+.header-icon {
+  display: none;
+}
+.responsive-header-menu {
+  display: none;
+  width: 100%;
+}
+.responsive-header-menu ul {
+  height: 100vh;
+  display: block;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+.responsive-header-menu ul li {
+  font-size: 10.8px;
+  text-align: center;
+  border-top: 1px solid #e6e6e6;
+}
+.responsive-header-menu ul li a {
+  display: block;
+  padding: 32px 0;
+  color: black;
+  font-weight: 600;
+  -webkit-transition: 0.2s ease-in-out all;
+  transition: 0.2s ease-in-out all;
+}
+.responsive-header-menu ul li a:hover {
+  color: #235B4E;
+  text-decoration: none;
+}
+.responsive-header-menu ul li:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 1180px) {
+  .header-content {
+    height: 80px;
+  }
+  .header-content .header-menu {
+    display: none;
+  }
+  .header-content .header-logo {
+    width: 243px;
+  }
+  .header-content .header-icon {
+    display: block;
+    cursor: pointer;
+    font-size: 18px;
+  }
+}
 </style>

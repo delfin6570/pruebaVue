@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="buzon">
     <b-row>
       <b-col>
 
@@ -102,14 +102,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.delfin{
-  font-size: 30px;
-.Buzón{
-  font-size: 30px;
-
-  }
-
-}
-
+    .buzon{
+        border-radius: 15px;
+        background: green;
+    }
 </style>

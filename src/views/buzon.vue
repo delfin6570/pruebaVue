@@ -1,13 +1,15 @@
 <template>
-  <div class="p-3 mb-2 bg-success   color = red">
-    <h1>Buzón de quejas</h1>
-    <b-img
-      :src="require('@/imagenes/title-background.svg')"
-      alt="Image 1"
-      :height="53"
-      align-h:left
-      class="buzon"
-    />
+  <div class="buzon">
+    <div class="titulo"> Buzón de quejas </div>
+    <div>
+      <b-img
+        :src="require('@/imagenes/title-background.svg')"
+        alt="Image 1"
+        :height="39"
+        align-h:left
+        class="buzon"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -30,7 +32,15 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    .Buzón{
-        margin-top: 60px;
+    .buzon{
+        border-radius: 15px;
+        background: #235B4E;
+    }
+    .titulo {
+        float: left;
+        padding: 40px;
+        font-weight: bold;
+        font-size:35px;
+        color: #BC955C;
     }
 </style>

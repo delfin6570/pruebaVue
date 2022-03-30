@@ -40,16 +40,19 @@
               placeholder="Selecciona un documento y arrastra aqui..."
             />
           </div>
-        </b-col></b-row>
-      <b-col md="12">
-        <label>Lugar de los hechos</label>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col md="12">
+          <label>Lugar de los hechos</label>
 
-        <!-- nombre -->
-        <b-form-input
-          v-model="userEmail"
-          placeholder="Introduce el lugar de los hechos"
-        />
-      </b-col>
+          <!-- nombre -->
+          <b-form-input
+            v-model="userEmail"
+            placeholder="Introduce el lugar de los hechos"
+          />
+        </b-col>
+      </b-row>
       <b-row>
         <b-col md="4">
           <label>Nombre de la empresa de seguridad privada</label>
@@ -74,16 +77,17 @@
             placeholder="Selecciona un documento y arrastra aqui..."
           />
         </b-col>
-      </b-row>
-      <b-row>
+      </b-row><br>
+      <b-row align-h="center">
 
         <b-button
-          class="Buzón"
+          class="buzon"
           variant="outline-danger"
           align-h="center"
         >Consulta de aviso de privacidad
         </b-button>
       </b-row>
+      <br>
       <b-row align-h="center">
         <b-col md="mt-3">
           <b-form-checkbox
@@ -156,13 +160,13 @@ export default {
 
 <style lang="scss" scoped>
 
-.delfin{
-  font-size: 30px;
-.Buzón{
-  font-size: 30px;
+.boton{
+  background: #235B4E !important;
+  font-weight: bolder;
+}
 
-  }
-
+.buzon{
+  font-weight: bolder;
 }
 
 </style>
