@@ -39,6 +39,20 @@ const router = new VueRouter({
       },
     },
     {
+      path: '/header2',
+      name: 'header2',
+      component: () => import('@/views/Header2.vue'),
+      meta: {
+        pageTitle: 'header2',
+        breadcrumb: [
+          {
+            text: 'header2',
+            active: true,
+          },
+        ],
+      },
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('@/views/Login.vue'),

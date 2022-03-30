@@ -5,7 +5,6 @@
         <b-card-title />
         <b-card-text />
         <table-basic />
-        <secon-page />
       </b-card>
     </b-card></div>
 </template>
