@@ -1,15 +1,32 @@
 <template>
   <div>
-    <header2 />
+    <encabezado />
+    <br>
+    <br>
+    <buzon />
+    <formulario />
+    <pie-pagina />
   </div>
 </template>
 
 <script>
-import Header2 from './Header2.vue'
+
+import encabezado from './encabezado.vue'
+import buzon from './buzon.vue'
+import formulario from './formulario.vue'
+import piePagina from './piePagina.vue'
 
 export default {
   components: {
-    Header2,
+    piePagina,
+    formulario,
+    buzon,
+    encabezado,
+    // BIcon,
+    // BNnavbar,
+    // BAlert,
+    // BContainer,
+
   },
 
   data() {
