@@ -4,13 +4,13 @@
       <b-col>
 
         <b-img
-          :src="require('@/imagenes/images.png')"
+          :src="require('@/assets/images/icons/images.png')"
           alt="Image 1"
           :height="40"
           align-h:left
         />
         <b-img
-          :src="require('@/imagenes/index.jpeg')"
+          :src="require('@/assets/images/icons/index.jpeg')"
           alt="Image 1"
           :height="40"
           align-h="left"
@@ -31,25 +31,25 @@
           </b-col>
           <b-col>Redes Sociales
             <b-img
-              :src="require('@/imagenes/face.png')"
+              :src="require('/home/delfin/Escritorio/vuexy-full-version/src/assets/images/icons/face.png')"
               alt="Image 1"
               :height="40"
               align-h="left"
             />
             <b-img
-              :src="require('@/imagenes/youtube.png')"
+              :src="require('/home/delfin/Escritorio/vuexy-full-version/src/assets/images/icons/youtube.png')"
               alt="Image 2"
               :height="40"
               align-h="left"
             />
             <b-img
-              :src="require('@/imagenes/instagram.jpeg')"
+              :src="require('/home/delfin/Escritorio/vuexy-full-version/src/assets/images/icons/instagram.jpeg')"
               alt="Image 2"
               :height="40"
               align-h="left"
             />
             <b-img
-              :src="require('@/imagenes/twitter22.png')"
+              :src="require('/home/delfin/Escritorio/vuexy-full-version/src/assets/images/icons/twitter22.png')"
               alt="Image 2"
               :height="40"
               align-h="left"

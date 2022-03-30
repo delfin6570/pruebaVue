@@ -2,12 +2,12 @@
   <b-row>
     <b-col>
       <b-img
-        :src="require('@/assets/images/icons/images.png')"
+        :src="require('@/imagenes/images.png')"
         alt="Image 1"
         :height="40"
       />
       <b-img
-        :src="require('/home/delfin/Escritorio/vuexy-full-version/src/assets/images/icons/index.jpeg')"
+        :src="require('@/imagenes/index.jpeg')"
         alt="Image 1"
         :height="40"
       />
