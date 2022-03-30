@@ -1,8 +1,8 @@
 <template>
-  <div class="p-3 mb-2 bg-success  color = red">
+  <div class="p-3 mb-2 bg-success   color = red">
     <h1>Buzón de quejas</h1>
     <b-img
-      :src="require('@/assets/images/title-background.svg')"
+      :src="require('@/imagenes/title-background.svg')"
       alt="Image 1"
       :height="53"
       align-h:left
