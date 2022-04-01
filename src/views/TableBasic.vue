@@ -5,7 +5,6 @@
       class="link"
     />
     <label for="" />
-    Estrado Electrónico
     <b-table
       responsive
       :items="items"

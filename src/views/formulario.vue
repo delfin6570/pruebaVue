@@ -59,7 +59,7 @@
           <!-- nombre -->
           <b-form-input
             v-model="userEmail"
-            placeholder="Introduce tu método de contacto"
+            placeholder="Empresa de Seguridad Privada"
           />
         </b-col>
         <b-col md="4">

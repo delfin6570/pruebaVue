@@ -98,17 +98,17 @@ export default {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 .header-content .header-logo {
-  width: 300px;
+  width: 100%;
 }
 .header-menu {
-  width: 100%;
+  width: 300%;
 }
 .header-menu ul {
   display: -webkit-box;
@@ -123,10 +123,10 @@ export default {
   padding: 0;
   list-style: none;
   margin: 0;
-  height: 80px;
+  height: px;
 }
 .header-menu ul a {
-  margin-right: 30px;
+  margin-right: 80px;
   padding: 2px 0;
   border-bottom: 2px solid white;
   -webkit-transition: 0.2s ease-in-out all;
@@ -145,13 +145,14 @@ export default {
   color: #235B4E;
 }
 .header-menu ul a:last-child {
-  margin-right: 0;
+  margin-right: 0px;
 }
 .header-menu ul li:last-child {
-  margin-right: 0;
+  margin-right: 0px;
 }
 .header-icon {
   display: none;
+
 }
 .responsive-header-menu {
   display: none;
@@ -191,14 +192,16 @@ export default {
   }
   .header-content .header-menu {
     display: none;
+    display: block;
   }
   .header-content .header-logo {
     width: 243px;
+
   }
   .header-content .header-icon {
     display: block;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 210%;
   }
 }
 </style>
