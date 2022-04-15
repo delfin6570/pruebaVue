@@ -1,10 +1,11 @@
 import Vue from 'vue'
-import { ToastPlugin, ModalPlugin } from 'bootstrap-vue'
+import { ToastPlugin, ModalPlugin, FormDatepickerPlugin } from 'bootstrap-vue'
 import VueCompositionAPI from '@vue/composition-api'
 
 import router from './router'
 import store from './store'
 import App from './App.vue'
+// import validation
 
 // Global Components
 import './global-components'
@@ -16,6 +17,7 @@ import '@/libs/toastification'
 // BSV Plugin Registration
 Vue.use(ToastPlugin)
 Vue.use(ModalPlugin)
+Vue.use(FormDatepickerPlugin)
 
 // Composition API
 Vue.use(VueCompositionAPI)

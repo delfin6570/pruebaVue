@@ -5,6 +5,7 @@
       <b-card-text />
       <table-basic />
       <secon-page />
+      <b-form-datepicker />
     </b-card></div>
 </template>
 
