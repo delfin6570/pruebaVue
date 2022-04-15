@@ -28,16 +28,21 @@
         <!-- nombre -->
         <ValidationProvider>
           <label>Correo electrónico o teléfono</label>
-          <b-form-input
-            id="correoElectronico"
-            v-model="form.correoElectronico"
-            type="text"
-            lazy-rules
-            no-error-icon:rules="[
+          <b-form-group
+            id="example-input-group-1"
+            label-for="example-input-1"
+          >
+            <b-form-input
+              id="correoElectronico"
+              v-model="form.correoElectronico"
+              type="text"
+              lazy-rules
+              no-error-icon:rules="[
             val =
           > val && val.length > 0 || 'Este campo es obligatorio', isValidEmail]"
-            placeholder="Introduce tu método de contacto"
-          />
+              placeholder="Introduce tu método de contacto"
+            />
+          </b-form-group>
         </ValidationProvider>
       </ValidationObserver>
       <b-row>
@@ -85,6 +90,7 @@
           <!-- nombre -->
           <b-form-input
             v-model="form.nombreEmpresa"
+
             type="text"
             aria-describedby="input-1-live-feedback"
             placeholder="Empresa de Seguridad Privada"
@@ -96,7 +102,7 @@
           <b-form-datepicker
             id="example-datepicker"
             v-model="form.fecha"
-            label-calendar="jgtiuyui"
+            label-calendar="Use las teclas del cursor para navegar por las fechas del calendario"
             class="mb-2"
           />
         </b-col>
@@ -107,7 +113,6 @@
           <!-- Styled -->
           <b-form-file
             v-model="form.croquisOficina"
-          
             browse-text="Buscar"
             placeholder="Selecciona un documento y arrastra aqui..."
             accept=".jpg, .png, .gif, .pdf, .docx"
@@ -192,6 +197,7 @@ export default {
       footer: null,
       value: null,
       nombre: null,
+      submite: false,
       form: {
         nombre: '',
         correoElectronico: '',
