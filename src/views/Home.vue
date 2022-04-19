@@ -10,12 +10,13 @@
 </template>
 
 <script>
-import { BCard } from 'bootstrap-vue'
+import { BCard, BCardTitle } from 'bootstrap-vue'
 import TableBasic from './TableBasic.vue'
 
 export default {
   components: {
     BCard,
+    BCardTitle,
     TableBasic,
   },
 }
