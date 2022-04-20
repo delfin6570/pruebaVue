@@ -11,7 +11,7 @@
           ref="observer"
           v-slot="{ handleSubmit }"
         >
-          <b-form >
+          <b-form>
             <b-row>
               <b-col>
                 <validation-provider
@@ -94,7 +94,6 @@
             <validation-provider
               v-slot="validationContext"
               name="Apartado para adjuntar pruebas (fotos, documentos, etc)"
-
               :rules="{ required: true, min: 3 }"
             >
               <b-form-group
@@ -172,8 +171,7 @@
                   name="Fecha"
                   :rules="{ required: true, min: 3 }"
                 >
-                  <b-form-group
-                  >
+                  <b-form-group>
                     <div>
                       <label for="example-datepicker">Fecha</label>
                       <b-form-datepicker
@@ -216,16 +214,6 @@
                 </validation-provider>
               </b-col>
             </b-row>
-          <b-row align-h="center">
-            <b-col md="mt-3">
-              <b-button
-                class="ml-2"
-                @click="resetForm()"
-              >
-                limpiar
-              </b-button>
-            </b-col>
-          </b-row>
           </b-form>
         </validation-observer>
       </div>
@@ -288,7 +276,11 @@ import {
   // BAlert,
   // BContainer,
 } from 'bootstrap-vue'
-import { ValidationObserver, ValidationProvider, configure  } from 'vee-validate/dist/vee-validate.full'
+import {
+  ValidationObserver,
+  ValidationProvider,
+  configure,
+} from 'vee-validate/dist/vee-validate.full'
 import axios from 'axios'
 
 export default {
@@ -312,7 +304,7 @@ export default {
     // BAlert,
     // BContainer,
   },
-  
+
   data() {
     return {
       status: null,
@@ -337,7 +329,7 @@ export default {
   },
   methods: {
     handleSubmit(e) {
-      alert("SUCCESS!!")
+      alert('SUCCESS!!')
     },
     enviar() {
       console.log(this.form.nombre)
@@ -376,7 +368,6 @@ export default {
     },
   },
 }
-
 </script>
 
 <style lang="scss" scoped>
