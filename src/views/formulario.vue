@@ -328,7 +328,7 @@ export default {
     }
   },
   methods: {
-    handleSubmit(e) {
+    handleSubmit() {
       alert('SUCCESS!!')
     },
     enviar() {
