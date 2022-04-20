@@ -89,6 +89,7 @@
             <validation-provider
               v-slot="validationContext"
               name="Apartado para adjuntar pruebas (fotos, documentos, etc)"
+
               :rules="{ required: true, min: 3 }"
             >
               <b-form-group
@@ -363,6 +364,7 @@ export default {
     },
   },
 }
+
 </script>
 
 <style lang="scss" scoped>
