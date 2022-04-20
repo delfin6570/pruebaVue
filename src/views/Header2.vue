@@ -8,7 +8,7 @@
         :height="40"
       />
       <b-img
-        :src="require('/home/delfin/Documentos/proyectosVue/pruebaVue/src/assets/images/icons/index.jpeg')"
+        :src="require('@/assets/images/icons/images.png')"
         alt="Image 2"
         :height="40"
       />
