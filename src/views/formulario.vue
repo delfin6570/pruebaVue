@@ -1,5 +1,10 @@
 <template>
   <div>
+    <label
+      class="delfin"
+    >Llene todos los campos para levantar una queja a una Empresa de
+      Seguridad Privada
+    </label>
     <validation-observer ref="observer" v-slot="{ handleSubmit }">
       <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
         <b-row>
@@ -170,7 +175,8 @@
                     <b-form-datepicker
                       id="fecha"
                       v-model="form.fecha"
-                      label-calendar="Usa las teclas del cursor"
+                      label-help="Usa las teclas del cursor"
+                      label-no-date-selected="No a seleccionado una fecha"
                       class="mb-2"
                       placeholder="Sin fecha seleccionada"
                     />
