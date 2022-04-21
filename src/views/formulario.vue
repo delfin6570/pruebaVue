@@ -1,14 +1,8 @@
 <template>
-  <b-card>
-    <label
-      class="delfin"
-    >Llene todos los campos para levantar una queja a una Empresa de
-      Seguridad Privada
-    </label>
-    <div>
-      <validation-observer ref="observer" v-slot="{ handleSubmit }">
-        <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
-          <b-row>
+  <div>
+    <validation-observer ref="observer" v-slot="{ handleSubmit }">
+      <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
+        <b-row>
             <b-col>
               <validation-provider
                 name="Nombre"
@@ -61,8 +55,9 @@
                 </b-form-group>
               </validation-provider>
             </b-col>
-          </b-row>
-          <validation-provider
+        </b-row>
+
+        <validation-provider
             v-slot="validationContext"
             name="Descripción de los hechos"
             :rules="{ required: true, min: 3 }"
@@ -134,6 +129,7 @@
               }}</b-form-invalid-feedback>
             </b-form-group>
           </validation-provider>
+
           <b-row>
             <b-col>
               <validation-provider
@@ -211,61 +207,50 @@
               </validation-provider>
             </b-col>
           </b-row>
-        <b-row align-h="center">
+          <b-row align-h="center">
           <b-col md="mt-3">
             <b-button
-              class="ml-2"
-              @click="resetForm()"
-            >
-              limpiar
+              class="buzon"
+              variant="outline-danger"
+              align-h="center"
+            >Consulta de aviso de privacidad
             </b-button>
-          </b-col>
-        </b-row>
-        </b-form>
-      </validation-observer>
-    </div>
-    <br>
-    <b-row align-h="center">
-      <b-col md="mt-3">
-        <b-button
-          class="buzon"
-          variant="outline-danger"
-          align-h="center"
-        >Consulta de aviso de privacidad
-        </b-button>
-        <br>
+            <br>
 
-        <br>
-        <b-row align-h="center">
-          <b-col md="mt-3">
-            <b-form-checkbox
-              v-model="status"
-              name="checkbox-1"
-              value="accepted"
-            >Acepto de aviso de privacidad
-            </b-form-checkbox>
-            <div class="mt-3 mr-4 ml-3">
-              <b-row align-h="center">
-                <b-col md="6" />
-                <b-button
-                  type="submit"
-                  variant="primary"
-                  class="boton"
-                >
-                  Enviar
-                </b-button>
-              </b-row>
-            </div>
+            <br>
+            <b-row align-h="center">
+              <b-col md="mt-3">
+                <b-form-checkbox
+                  v-model="status"
+                  name="checkbox-1"
+                  value="accepted"
+                >Acepto de aviso de privacidad
+                </b-form-checkbox>
+                <div class="mt-3 mr-4 ml-3">
+                  <b-row align-h="center">
+                    <b-col md="6" />
+                    <b-button
+                      type="submit"
+                      variant="primary"
+                      class="boton"
+                    >
+                      Enviar
+                    </b-button>
+                  </b-row>
+                </div>
+              </b-col>
+            </b-row>
           </b-col>
         </b-row>
-      </b-col>
-    </b-row>
-  </b-card>
+      </b-form>
+    </validation-observer>
+  </div>
 </template>
 
 <script>
 import {
   // BFormInvalidfeedback,
+  BFormSelect,
   BCard,
   BForm,
   BFormInvalidFeedback,
@@ -290,6 +275,7 @@ localize('es', es)
 export default {
   components: {
     BFormTextarea,
+    BFormSelect,
     BFormInvalidFeedback,
     ValidationObserver,
     ValidationProvider,
@@ -311,6 +297,11 @@ export default {
   
   data() {
     return {
+      foods: [
+        { value: null, text: "Choose..." },
+        { value: "apple", text: "Apple" },
+        { value: "orange", text: "Orange" }
+      ],
       status: null,
       file: null,
       userEmail: null,
