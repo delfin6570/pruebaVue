@@ -175,16 +175,6 @@
                 :rules="{ required: true, min: 3 }"
               >
                 <b-form-group>
-                  <div>
-                    <label for="fecha">Fecha</label>
-                    <b-form-datepicker
-                      id="fecha"
-                      v-model="form.fecha"
-                      label-help="Usa las teclas del cursor"
-                      class="mb-2"
-                      placeholder="Sin fecha seleccionada"
-                    />
-                  </div>
                   <b-form-invalid-feedback id="input-1-live-feedback">{{
                     validationContext.errors[0]
                   }}</b-form-invalid-feedback>
