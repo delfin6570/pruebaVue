@@ -1,18 +1,25 @@
 <template>
   <div>
-    <label
-      class="delfin"
-    >Llene todos los campos para levantar una queja a una Empresa de
-      Seguridad Privada
-    </label>
-    <validation-observer ref="observer" v-slot="{ handleSubmit }">
-      <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
-        <b-row>
+    <validation-observer
+      ref="observer"
+      v-slot="{ handleSubmit }"
+    >
+      <label
+        class="delfin"
+      >Llene todos los campos para levantar una queja a una Empresa de
+        Seguridad Privada
+      </label>
+      <validation-observer
+        ref="observer"
+        v-slot="{ handleSubmit }"
+      >
+        <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
+          <b-row>
             <b-col>
               <validation-provider
+                v-slot="validationContext"
                 name="Nombre"
                 :rules="{ required: true, min: 3 }"
-                v-slot="validationContext"
               >
                 <b-form-group
                   id="nombre"
@@ -60,9 +67,9 @@
                 </b-form-group>
               </validation-provider>
             </b-col>
-        </b-row>
+          </b-row>
 
-        <validation-provider
+          <validation-provider
             v-slot="validationContext"
             name="Descripción de los hechos"
             :rules="{ required: true, min: 3 }"
@@ -155,7 +162,6 @@
                     aria-describedby="input-1-live-feedback"
                     placeholder="Empresa de Seguridad Privada"
                   />
-
                   <b-form-invalid-feedback id="input-1-live-feedback">{{
                     validationContext.errors[0]
                   }}</b-form-invalid-feedback>
@@ -168,8 +174,30 @@
                 name="Fecha"
                 :rules="{ required: true, min: 3 }"
               >
-                <b-form-group
-                >
+                <b-form-group>
+                  <div>
+                    <label for="fecha">Fecha</label>
+                    <b-form-datepicker
+                      id="fecha"
+                      v-model="form.fecha"
+                      label-help="Usa las teclas del cursor"
+                      class="mb-2"
+                      placeholder="Sin fecha seleccionada"
+                    />
+                  </div>
+                  <b-form-invalid-feedback id="input-1-live-feedback">{{
+                    validationContext.errors[0]
+                  }}</b-form-invalid-feedback>
+                </b-form-group>
+              </validation-provider>
+            </b-col>
+            <b-col>
+              <validation-provider
+                v-slot="validationContext"
+                name="Fecha"
+                :rules="{ required: true, min: 3 }"
+              >
+                <b-form-group>
                   <div>
                     <label for="fecha">Fecha</label>
                     <b-form-datepicker
@@ -214,41 +242,42 @@
             </b-col>
           </b-row>
           <b-row align-h="center">
-          <b-col md="mt-3">
-            <b-button
-              class="buzon"
-              variant="outline-danger"
-              align-h="center"
-            >Consulta de aviso de privacidad
-            </b-button>
-            <br>
+            <b-col md="mt-3">
+              <b-button
+                class="buzon"
+                variant="outline-danger"
+                align-h="center"
+              >Consulta de aviso de privacidad
+              </b-button>
+              <br>
 
-            <br>
-            <b-row align-h="center">
-              <b-col md="mt-3">
-                <b-form-checkbox
-                  v-model="status"
-                  name="checkbox-1"
-                  value="accepted"
-                >Acepto de aviso de privacidad
-                </b-form-checkbox>
-                <div class="mt-3 mr-4 ml-3">
-                  <b-row align-h="center">
-                    <b-col md="6" />
-                    <b-button
-                      type="submit"
-                      variant="primary"
-                      class="boton"
-                    >
-                      Enviar
-                    </b-button>
-                  </b-row>
-                </div>
-              </b-col>
-            </b-row>
-          </b-col>
-        </b-row>
-      </b-form>
+              <br>
+              <b-row align-h="center">
+                <b-col md="mt-3">
+                  <b-form-checkbox
+                    v-model="status"
+                    name="checkbox-1"
+                    value="accepted"
+                  >Acepto de aviso de privacidad
+                  </b-form-checkbox>
+                  <div class="mt-3 mr-4 ml-3">
+                    <b-row align-h="center">
+                      <b-col md="6" />
+                      <b-button
+                        type="submit"
+                        variant="primary"
+                        class="boton"
+                      >
+                        Enviar
+                      </b-button>
+                    </b-row>
+                  </div>
+                </b-col>
+              </b-row>
+            </b-col>
+          </b-row>
+        </b-form>
+      </validation-observer>
     </validation-observer>
   </div>
 </template>
@@ -256,8 +285,8 @@
 <script>
 import {
   // BFormInvalidfeedback,
-  BFormSelect,
-  BCard,
+  // BFormSelect,
+  // BCard,
   BForm,
   BFormInvalidFeedback,
   BFormInput,
@@ -274,18 +303,23 @@ import {
   // BAlert,
   // BContainer,
 } from 'bootstrap-vue'
-import { ValidationObserver, ValidationProvider, localize  } from 'vee-validate/dist/vee-validate.full'
+import {
+  ValidationObserver,
+  ValidationProvider,
+  localize,
+} from 'vee-validate/dist/vee-validate.full'
 import axios from 'axios'
 import es from 'vee-validate/dist/locale/es.json'
+
 localize('es', es)
 export default {
   components: {
     BFormTextarea,
-    BFormSelect,
+    // BFormSelect,
     BFormInvalidFeedback,
     ValidationObserver,
     ValidationProvider,
-    BCard,
+    // BCard,
     BForm,
     BFormInput,
     BFormGroup,
@@ -300,13 +334,12 @@ export default {
     // BAlert,
     // BContainer,
   },
-  
   data() {
     return {
       foods: [
-        { value: null, text: "Choose..." },
-        { value: "apple", text: "Apple" },
-        { value: "orange", text: "Orange" }
+        { value: null, text: 'Choose...' },
+        { value: 'apple', text: 'Apple' },
+        { value: 'orange', text: 'Orange' },
       ],
       status: null,
       file: null,
@@ -356,7 +389,6 @@ export default {
         fecha: null,
         croquisOficina: null,
       }
-
       this.$nextTick(() => {
         this.$refs.observer.reset()
       })
@@ -376,7 +408,6 @@ export default {
   background-color: #235b4e !important;
   font-weight: bolder;
 }
-
 .buzon {
   font-weight: bolder;
 }
