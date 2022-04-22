@@ -17,25 +17,17 @@
               href="#inicio"
               class="link"
             >
-              <li>
-                Seguridad Privada
-              </li>
+              <li>Seguridad Privada</li>
             </a>
             <a
               href="#inicio"
               class="link"
-            >
-              <li>
-                Buzón de Quejas
-              </li>
-            </a>
+            />
             <a
               href="#inicio"
               class="link"
             >
-              <li>
-                Estrado Electrónico
-              </li>
+              <li>Estrado Electrónico</li>
             </a>
           </ul>
         </div>
@@ -72,7 +64,6 @@
   </div>
 </template>
 <script>
-
 import { BImg } from 'bootstrap-vue'
 
 export default {
@@ -92,7 +83,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .header-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -101,8 +91,8 @@ export default {
   -ms-flex-pack: justify;
   justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .header-content .header-logo {
   width: 100%;
@@ -115,11 +105,11 @@ export default {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 0;
   list-style: none;
   margin: 0;
@@ -141,18 +131,17 @@ export default {
   transition: 0.2s ease-in-out all;
 }
 .header-menu ul a:hover {
-  border-bottom: 2px solid #235B4E;
-  color: #235B4E;
+  border-bottom: 2px solid #235b4e;
+  color: #235b4e;
 }
 .header-menu ul a:last-child {
   margin-right: 0px;
 }
 .header-menu ul li:last-child {
-  margin-right: 0px;
+  margin-right: auto;
 }
 .header-icon {
   display: none;
-
 }
 .responsive-header-menu {
   display: none;
@@ -179,7 +168,7 @@ export default {
   transition: 0.2s ease-in-out all;
 }
 .responsive-header-menu ul li a:hover {
-  color: #235B4E;
+  color: #235b4e;
   text-decoration: none;
 }
 .responsive-header-menu ul li:last-child {
@@ -196,7 +185,6 @@ export default {
   }
   .header-content .header-logo {
     width: 243px;
-
   }
   .header-content .header-icon {
     display: block;
@@ -204,4 +192,7 @@ export default {
     font-size: 210%;
   }
 }
+.header{
+    margin-bottom: 20px;
+  }
 </style>
