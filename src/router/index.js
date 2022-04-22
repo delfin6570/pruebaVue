@@ -29,13 +29,7 @@ const router = new VueRouter({
       name: 'second-page',
       component: () => import('@/views/SecondPage.vue'),
       meta: {
-        pageTitle: 'Second Page',
-        breadcrumb: [
-          {
-            text: 'Second Page',
-            active: true,
-          },
-        ],
+        layout: 'full',
       },
     },
     {
@@ -64,6 +58,14 @@ const router = new VueRouter({
       path: '/error-404',
       name: 'error-404',
       component: () => import('@/views/error/Error404.vue'),
+      meta: {
+        layout: 'full',
+      },
+    },
+    {
+      path: '/forumulario',
+      name: 'forumulario',
+      component: () => import('@/views/SecondPage.vue'),
       meta: {
         layout: 'full',
       },
