@@ -25,8 +25,8 @@ const router = new VueRouter({
       },
     },
     {
-      path: '/second-page',
-      name: 'second-page',
+      path: '/formulario',
+      name: 'formulario',
       component: () => import('@/views/SecondPage.vue'),
       meta: {
         layout: 'full',
