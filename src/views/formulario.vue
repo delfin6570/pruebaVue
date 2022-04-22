@@ -359,6 +359,7 @@ export default {
         .post('http://10.13.123.94:8010/api/v1/prueba', this.form)
         .then(response => {
           console.log(response)
+          this.resetForm()
         })
         .catch(error => {
           console.log(error)
@@ -385,6 +386,7 @@ export default {
     onSubmit() {
       // alert('Formulado Envíado!')
       console.log('Envìando Formulario')
+      this.enviar()
     },
   },
 }
