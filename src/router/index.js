@@ -63,14 +63,6 @@ const router = new VueRouter({
       },
     },
     {
-      path: '/forumulario',
-      name: 'forumulario',
-      component: () => import('@/views/SecondPage.vue'),
-      meta: {
-        layout: 'full',
-      },
-    },
-    {
       path: '*',
       redirect: 'error-404',
     },
