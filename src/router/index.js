@@ -25,13 +25,14 @@ const router = new VueRouter({
       },
     },
     {
-      path: '/second-page',
-      name: 'second-page',
+      path: '/estrado',
+      name: 'estrado',
       component: () => import('@/views/SecondPage.vue'),
       meta: {
         layout: 'full',
       },
     },
+
     {
       path: '/header2',
       name: 'header2',
