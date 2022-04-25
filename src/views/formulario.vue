@@ -10,7 +10,6 @@
       >Llene todos los campos para levantar una queja a una Empresa de
         Seguridad Privada
       </label>
-      <validation-observer ref="observer">
         <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
           <b-row>
             <b-col>
@@ -43,7 +42,7 @@
             <b-col>
               <validation-provider
                 v-slot="validationContext"
-                name="Correo electrónico o teléfono"
+                name="CorreoE"
                 :rules="{ required: true, min: 3 }"
               >
                 <b-form-group
@@ -68,11 +67,12 @@
                 </b-form-group>
               </validation-provider>
             </b-col>
-          </b-row>
+        </b-row>
 
+        <b-row>
           <validation-provider
             v-slot="validationContext"
-            name="Descripción de los hechos"
+            name="DescripcionH"
             :rules="{ required: true, min: 3 }"
           >
             <b-form-group
@@ -95,12 +95,9 @@
               }}</b-form-invalid-feedback>
             </b-form-group>
           </validation-provider>
-
-          <validation-provider
-            v-slot="validationContext"
-            name="Apartado para adjuntar pruebas (fotos, documentos, etc)"
-            :rules="{ required: true, min: 3 }"
-          >
+        </b-row>
+       
+       
             <b-form-group
               id="pruebas"
               class="apartado"
@@ -114,15 +111,11 @@
                 accept=".jpg, .png, .gif, .pdf, .docx"
               />
 
-              <b-form-invalid-feedback id="input-1-live-feedback">{{
-                validationContext.errors[0]
-              }}</b-form-invalid-feedback>
             </b-form-group>
-          </validation-provider>
 
           <validation-provider
             v-slot="validationContext"
-            name="Lugar de los hechos"
+            name="Lugar Hechos"
             :rules="{ required: true, min: 3 }"
           >
             <b-form-group
@@ -150,7 +143,7 @@
             <b-col>
               <validation-provider
                 v-slot="validationContext"
-                name="Nombre de la Empresa de Seguridad Privada"
+                name="NombreEmpresa"
                 :rules="{ required: true, min: 3 }"
               >
                 <b-form-group
@@ -173,25 +166,13 @@
                 </b-form-group>
               </validation-provider>
             </b-col>
+
             <b-col>
-              <validation-provider
-                v-slot="validationContext"
-                name="Fecha"
-                :rules="{ required: true, min: 3 }"
-              >
                 <b-form-group>
-                  <b-form-invalid-feedback id="input-1-live-feedback">{{
-                    validationContext.errors[0]
-                  }}</b-form-invalid-feedback>
                 </b-form-group>
-              </validation-provider>
             </b-col>
+            
             <b-col>
-              <validation-provider
-                v-slot="validationContext"
-                name="Fecha"
-                :rules="{ required: true, min: 3 }"
-              >
                 <b-form-group>
                   <div>
                     <label
@@ -208,18 +189,10 @@
                     />
                   </div>
 
-                  <b-form-invalid-feedback id="input-1-live-feedback">{{
-                    validationContext.errors[0]
-                  }}</b-form-invalid-feedback>
                 </b-form-group>
-              </validation-provider>
             </b-col>
             <b-col>
-              <validation-provider
-                v-slot="validationContext"
-                name="Croquis de la oficina o lugar donde ocurrieron los hechos"
-                :rules="{ required: true, min: 3 }"
-              >
+              
                 <b-form-group
                   id="croquis"
                   class="croquis"
@@ -233,13 +206,11 @@
                     accept=".jpg, .png, .gif, .pdf, .docx"
                   />
 
-                  <b-form-invalid-feedback id="input-1-live-feedback">{{
-                    validationContext.errors[0]
-                  }}</b-form-invalid-feedback>
                 </b-form-group>
-              </validation-provider>
+                
             </b-col>
           </b-row>
+          
           <b-row align-h="center">
             <b-col md="mt-3">
               <b-button
@@ -276,24 +247,19 @@
             </b-col>
           </b-row>
           <b-modal
-            id="enviar"
+            id="alerta"
             ok-only
-            ok-variant="info"
-            ok-title="Accept"
-            modal-class="modal-info"
+            ok-variant="success"
+            ok-title="Cerrar"
+            modal-class="modal-success"
             centered
-            title="Info Modal"
+            title="Aviso"
           >
             <b-card-text>
-              Biscuit chocolate cake gummies. Lollipop I love macaroon bear claw
-              caramels. I love marshmallow tiramisu I love fruitcake I love
-              gummi bears. Carrot cake topping liquorice. Pudding caramels
-              liquorice sweet I love. Donut powder cupcake ice cream tootsie
-              roll jelly.
+              Se envio correctamente
             </b-card-text>
           </b-modal>
         </b-form>
-      </validation-observer>
     </validation-observer>
   </div>
 </template>
@@ -303,7 +269,9 @@ import {
   // BFormInvalidfeedback,
   // BFormSelect,
   // BCard,
+  BCardText,
   BForm,
+  BFormSelect,
   BFormInvalidFeedback,
   BFormInput,
   BFormTextarea,
@@ -331,6 +299,8 @@ import es from 'vee-validate/dist/locale/es.json'
 localize('es', es)
 export default {
   components: {
+    BCardText,
+    BFormSelect,
     BModal,
     BFormTextarea,
     // BFormSelect,
@@ -355,9 +325,9 @@ export default {
   data() {
     return {
       foods: [
-        // { value: null, text: 'Choose...' },
-        // { value: 'apple', text: 'Apple' },
-        // { value: 'orange', text: 'Orange' },
+        { value: null, text: 'Choose...' },
+        { value: 'apple', text: 'Apple' },
+         { value: 'orange', text: 'Orange' },
       ],
       status: null,
       file: null,
@@ -414,7 +384,8 @@ export default {
     onSubmit() {
       // alert('Formulado Envíado!')
       console.log('Envìando Formulario')
-      // this.$bvModal.show("alerta")
+      this.$bvModal.show("alerta")
+      this.resetForm()
       // this.enviar();
     },
   },
