@@ -1,9 +1,13 @@
 <template>
   <div class="formulario">
-    <validation-observer ref="observer" v-slot="{ handleSubmit }">
+    <validation-observer
+      ref="observer"
+      v-slot="{ handleSubmit }"
+    >
       <br>
-      <label class="delfin"
-        >Llene todos los campos para levantar una queja a una Empresa de
+      <label
+        class="delfin"
+      >Llene todos los campos para levantar una queja a una Empresa de
         Seguridad Privada
       </label>
       <validation-observer ref="observer">
@@ -190,7 +194,10 @@
               >
                 <b-form-group>
                   <div>
-                    <label class="estiloFecha" for="fecha">Fecha</label>
+                    <label
+                      class="estiloFecha"
+                      for="fecha"
+                    >Fecha</label>
                     <b-form-datepicker
                       id="fecha"
                       v-model="form.fecha"
@@ -235,11 +242,14 @@
           </b-row>
           <b-row align-h="center">
             <b-col md="mt-3">
-              <b-button class="buzon" variant="outline-danger" align-h="center"
-                >Consulta de aviso de privacidad
+              <b-button
+                class="buzon"
+                variant="outline-danger"
+                align-h="center"
+              >Consulta de aviso de privacidad
               </b-button>
-              <br />
-              <br />
+              <br>
+              <br>
               <b-row align-h="center">
                 <b-col md="mt-3">
                   <b-form-checkbox
@@ -247,12 +257,16 @@
                     name="checkbox-1"
                     value="accepted"
                     class="aceptar"
-                    >Acepto de aviso de privacidad
+                  >Acepto de aviso de privacidad
                   </b-form-checkbox>
                   <div class="enviar">
                     <b-row align-h="center">
                       <b-col md="6" />
-                      <b-button type="submit" variant="primary" class="boton">
+                      <b-button
+                        type="submit"
+                        variant="primary"
+                        class="boton"
+                      >
                         Enviar
                       </b-button>
                     </b-row>
@@ -271,9 +285,11 @@
             title="Info Modal"
           >
             <b-card-text>
-              Biscuit chocolate cake gummies. Lollipop I love macaroon bear claw caramels. I love marshmallow tiramisu I love
-              fruitcake I love gummi bears. Carrot cake topping liquorice. Pudding caramels liquorice sweet I love. Donut powder
-              cupcake ice cream tootsie roll jelly.
+              Biscuit chocolate cake gummies. Lollipop I love macaroon bear claw
+              caramels. I love marshmallow tiramisu I love fruitcake I love
+              gummi bears. Carrot cake topping liquorice. Pudding caramels
+              liquorice sweet I love. Donut powder cupcake ice cream tootsie
+              roll jelly.
             </b-card-text>
           </b-modal>
         </b-form>
@@ -303,16 +319,16 @@ import {
   // BNnavbar,
   // BAlert,
   // BContainer,
-} from "bootstrap-vue";
+} from 'bootstrap-vue'
 import {
   ValidationObserver,
   ValidationProvider,
   localize,
-} from "vee-validate/dist/vee-validate.full";
-import axios from "axios";
-import es from "vee-validate/dist/locale/es.json";
+} from 'vee-validate/dist/vee-validate.full'
+import axios from 'axios'
+import es from 'vee-validate/dist/locale/es.json'
 
-localize("es", es);
+localize('es', es)
 export default {
   components: {
     BModal,
@@ -351,34 +367,34 @@ export default {
       nombre: null,
       submite: false,
       form: {
-        nombre: "",
-        correoElectronico: "",
-        descrincionHechos: "",
-        apartadoAdjuntarPruebas: "",
-        lugarHechos: "",
-        nombreEmpresa: "",
-        fecha: "",
+        nombre: '',
+        correoElectronico: '',
+        descrincionHechos: '',
+        apartadoAdjuntarPruebas: '',
+        lugarHechos: '',
+        nombreEmpresa: '',
+        fecha: '',
         croquisOficina: null,
-        value: "",
+        value: '',
       },
-    };
+    }
   },
   methods: {
     enviar() {
-      console.log(this.form.nombre);
-      console.log("hola Mundo");
+      console.log(this.form.nombre)
+      console.log('hola Mundo')
       axios
-        .post("http://10.13.123.94:8010/api/v1/prueba", this.form)
-        .then((response) => {
-          console.log(response);
-          this.resetForm();
+        .post('http://10.13.123.94:8010/api/v1/prueba', this.form)
+        .then(response => {
+          console.log(response)
+          this.resetForm()
         })
-        .catch((error) => {
-          console.log(error);
-        });
+        .catch(error => {
+          console.log(error)
+        })
     },
     getValidationState({ dirty, validated, valid = null }) {
-      return dirty || validated ? valid : null;
+      return dirty || validated ? valid : null
     },
     resetForm() {
       this.form = {
@@ -390,19 +406,19 @@ export default {
         nombreEmpresa: null,
         fecha: null,
         croquisOficina: null,
-      };
+      }
       this.$nextTick(() => {
-        this.$refs.observer.reset();
-      });
+        this.$refs.observer.reset()
+      })
     },
     onSubmit() {
       // alert('Formulado Envíado!')
-      console.log("Envìando Formulario");
-      //this.$bvModal.show("alerta")
-      //this.enviar();
+      console.log('Envìando Formulario')
+      // this.$bvModal.show("alerta")
+      // this.enviar();
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -416,7 +432,7 @@ export default {
   font-weight: bolder;
 }
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .label-sm {
@@ -694,25 +710,25 @@ header .responsive-header-menu ul li:last-child {
 }
 
 .correo {
-  width: 97%;
+  width: 98%;
   margin-left: -10px;
   margin-right: 50px;
   font-weight: bold;
 }
 .descripcion {
-  width: 91%;
+  width: 94%;
   margin-left: 51px;
   margin-right: 10px;
   font-weight: bold;
 }
 .apartado {
-  width: 91%;
+  width: 94%;
   margin-left: 47px;
   margin-right: -50px;
   font-weight: bold;
 }
 .hechos {
-  width: 91%;
+  width: 94%;
   margin-left: 47px;
   margin-right: -50px;
   font-weight: bold;
@@ -725,16 +741,16 @@ header .responsive-header-menu ul li:last-child {
 }
 
 .fecha {
-  width: 115%;
+  width: 121%;
   margin-right: 400px;
-  margin-left: -190px;
+  margin-left: -280px;
   font-weight: bold;
 }
 
 .croquis {
-  width: 130%;
+  width: 132%;
   margin-right: 200px;
-  margin-left: -150px;
+  margin-left: -199px;
   padding: 2px 0;
   font-weight: bold;
 }

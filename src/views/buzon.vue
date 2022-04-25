@@ -1,5 +1,8 @@
 <template>
-  <div class="buzon mb-2">
+  <div
+    class="buzon mb-2"
+    style="background-image: url('@/imagenes/title-background.svg')"
+  >
     <div class="titulo">
       Buzón de quejas
     </div>
@@ -14,7 +17,6 @@
   </div>
 </template>
 <script>
-
 import { BImg } from 'bootstrap-vue'
 
 export default {
@@ -33,28 +35,29 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    .contenedor {
-      width: auto;
-      height: auto;
-    }
-    .buzon{
-        border-radius: 15px;
-        background: #235B4E;
-        width: 92%;
-        height: 100%;
-        margin-left: 4%;
-        // width: -moz-available;
-        object-fit: containt;
-    }
-    .titulo {
-        float: left;
-        padding: 40px;
-        font-weight: bold;
-        font-size:35px;
-        color: #BC955C;
-    }
-    .imagen{
-      border-radius: 15px;
-      margin-left: 1%;
-    }
+.contenedor {
+  width: auto;
+  height: auto;
+}
+.buzon {
+  border-radius: 15px;
+  background: #235b4e;
+  width: 92%;
+  height: 100%;
+  margin-left: 4%;
+  background-size: 2000px;
+  object-fit: containt;
+}
+.titulo {
+  float: left;
+  padding: 40px;
+  font-weight: bold;
+  font-size: 35px;
+  color: #bc955c;
+}
+.imagen {
+  background-size: 2000px;
+  border-radius: 15px;
+  margin-left: 10%;
+}
 </style>
