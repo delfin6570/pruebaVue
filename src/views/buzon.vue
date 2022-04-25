@@ -7,8 +7,8 @@
       <b-img
         :src="require('@/imagenes/title-background.svg')"
         alt="Image 1"
-        :height="39"
-        class="buzon"
+        :height="35.9"
+        class="imagen"
       />
     </div>
   </div>
@@ -40,8 +40,9 @@ export default {
     .buzon{
         border-radius: 15px;
         background: #235B4E;
-        width: 100%;
+        width: 92%;
         height: 100%;
+        margin-left: 4%;
         // width: -moz-available;
         object-fit: containt;
     }
@@ -51,5 +52,9 @@ export default {
         font-weight: bold;
         font-size:35px;
         color: #BC955C;
+    }
+    .imagen{
+      border-radius: 15px;
+      margin-left: 1%;
     }
 </style>

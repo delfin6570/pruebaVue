@@ -1,11 +1,12 @@
 <template>
   <b-row>
-
     <b-col>
       <b-img
         :src="require('@/assets/images/icons/images.png')"
         alt="Image 1"
         :height="40"
+        :width="70"
+        :margin="30"
       />
       <b-img
         :src="require('@/assets/images/icons/images.png')"
@@ -13,7 +14,6 @@
         :height="40"
       />
       <a href="#">Seguridad Privada</a>
-      <a href="#">Buzón de quejas</a>
       <a href="#">Estrado Electrónico</a>
     </b-col>
   </b-row>

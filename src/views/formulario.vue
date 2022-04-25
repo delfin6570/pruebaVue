@@ -1,13 +1,9 @@
 <template>
-
   <div class="formulario">
-    <validation-observer
-      ref="observer"
-      v-slot="{ handleSubmit }"
-    >
-      <label
-        class="delfin"
-      >Llene todos los campos para levantar una queja a una Empresa de
+    <validation-observer ref="observer" v-slot="{ handleSubmit }">
+      <br>
+      <label class="delfin"
+        >Llene todos los campos para levantar una queja a una Empresa de
         Seguridad Privada
       </label>
       <validation-observer ref="observer">
@@ -21,6 +17,7 @@
               >
                 <b-form-group
                   id="nombre"
+                  class="nombre"
                   label="Nombre"
                   label-for="nombre"
                 >
@@ -47,6 +44,7 @@
               >
                 <b-form-group
                   id="correo"
+                  class="correo"
                   label="Correo electrónico o teléfono"
                   label-for="correo"
                 >
@@ -56,6 +54,7 @@
                     name="correo"
                     :state="getValidationState(validationContext)"
                     aria-describedby="input-1-live-feedback"
+                    class="correo"
                     placeholder="Introduce tu método de contacto"
                   />
 
@@ -74,6 +73,7 @@
           >
             <b-form-group
               id="descripcion"
+              class="descripcion"
               label="Descripción de los hechos"
               label-for="descripcion"
             >
@@ -99,6 +99,7 @@
           >
             <b-form-group
               id="pruebas"
+              class="apartado"
               label="Apartado para adjuntar pruebas (fotos, documentos, etc)"
               label-for="pruebas"
             >
@@ -122,6 +123,7 @@
           >
             <b-form-group
               id="lugar"
+              class="hechos"
               label="Lugar de los hechos"
               label-for="lugar"
             >
@@ -149,6 +151,7 @@
               >
                 <b-form-group
                   id="nombreE"
+                  class="empresa"
                   label="Nombre de la empresa de seguridad privada"
                   label-for="nombreE"
                 >
@@ -187,13 +190,13 @@
               >
                 <b-form-group>
                   <div>
-                    <label for="fecha">Fecha</label>
+                    <label class="estiloFecha" for="fecha">Fecha</label>
                     <b-form-datepicker
                       id="fecha"
                       v-model="form.fecha"
                       label-help="Usa las teclas del cursor"
+                      class="fecha"
                       label-no-date-selected="No a seleccionado una fecha"
-                      class="mb-2"
                       placeholder="Sin fecha seleccionada"
                     />
                   </div>
@@ -212,6 +215,7 @@
               >
                 <b-form-group
                   id="croquis"
+                  class="croquis"
                   label="Croquis de la oficina o lugar donde ocurrieron los hechos"
                   label-for="croquis"
                 >
@@ -231,31 +235,24 @@
           </b-row>
           <b-row align-h="center">
             <b-col md="mt-3">
-              <b-button
-                class="buzon"
-                variant="outline-danger"
-                align-h="center"
-              >Consulta de aviso de privacidad
+              <b-button class="buzon" variant="outline-danger" align-h="center"
+                >Consulta de aviso de privacidad
               </b-button>
-              <br>
-
-              <br>
+              <br />
+              <br />
               <b-row align-h="center">
                 <b-col md="mt-3">
                   <b-form-checkbox
                     v-model="status"
                     name="checkbox-1"
                     value="accepted"
-                  >Acepto de aviso de privacidad
+                    class="aceptar"
+                    >Acepto de aviso de privacidad
                   </b-form-checkbox>
-                  <div class="mt-3 mr-4 ml-3">
+                  <div class="enviar">
                     <b-row align-h="center">
                       <b-col md="6" />
-                      <b-button
-                        type="submit"
-                        variant="primary"
-                        class="boton"
-                      >
+                      <b-button type="submit" variant="primary" class="boton">
                         Enviar
                       </b-button>
                     </b-row>
@@ -264,6 +261,21 @@
               </b-row>
             </b-col>
           </b-row>
+          <b-modal
+            id="enviar"
+            ok-only
+            ok-variant="info"
+            ok-title="Accept"
+            modal-class="modal-info"
+            centered
+            title="Info Modal"
+          >
+            <b-card-text>
+              Biscuit chocolate cake gummies. Lollipop I love macaroon bear claw caramels. I love marshmallow tiramisu I love
+              fruitcake I love gummi bears. Carrot cake topping liquorice. Pudding caramels liquorice sweet I love. Donut powder
+              cupcake ice cream tootsie roll jelly.
+            </b-card-text>
+          </b-modal>
         </b-form>
       </validation-observer>
     </validation-observer>
@@ -285,23 +297,25 @@ import {
   BRow,
   BFormFile,
   BButton,
+  BModal,
   // BFormdatepicker,
   // BIcon,
   // BNnavbar,
   // BAlert,
   // BContainer,
-} from 'bootstrap-vue'
+} from "bootstrap-vue";
 import {
   ValidationObserver,
   ValidationProvider,
   localize,
-} from 'vee-validate/dist/vee-validate.full'
-import axios from 'axios'
-import es from 'vee-validate/dist/locale/es.json'
+} from "vee-validate/dist/vee-validate.full";
+import axios from "axios";
+import es from "vee-validate/dist/locale/es.json";
 
-localize('es', es)
+localize("es", es);
 export default {
   components: {
+    BModal,
     BFormTextarea,
     // BFormSelect,
     BFormInvalidFeedback,
@@ -325,9 +339,9 @@ export default {
   data() {
     return {
       foods: [
-      // { value: null, text: 'Choose...' },
-      // { value: 'apple', text: 'Apple' },
-      // { value: 'orange', text: 'Orange' },
+        // { value: null, text: 'Choose...' },
+        // { value: 'apple', text: 'Apple' },
+        // { value: 'orange', text: 'Orange' },
       ],
       status: null,
       file: null,
@@ -337,34 +351,34 @@ export default {
       nombre: null,
       submite: false,
       form: {
-        nombre: '',
-        correoElectronico: '',
-        descrincionHechos: '',
-        apartadoAdjuntarPruebas: '',
-        lugarHechos: '',
-        nombreEmpresa: '',
-        fecha: '',
+        nombre: "",
+        correoElectronico: "",
+        descrincionHechos: "",
+        apartadoAdjuntarPruebas: "",
+        lugarHechos: "",
+        nombreEmpresa: "",
+        fecha: "",
         croquisOficina: null,
-        value: '',
+        value: "",
       },
-    }
+    };
   },
   methods: {
     enviar() {
-      console.log(this.form.nombre)
-      console.log('hola Mundo')
+      console.log(this.form.nombre);
+      console.log("hola Mundo");
       axios
-        .post('http://10.13.123.94:8010/api/v1/prueba', this.form)
-        .then(response => {
-          console.log(response)
-          this.resetForm()
+        .post("http://10.13.123.94:8010/api/v1/prueba", this.form)
+        .then((response) => {
+          console.log(response);
+          this.resetForm();
         })
-        .catch(error => {
-          console.log(error)
-        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
     getValidationState({ dirty, validated, valid = null }) {
-      return dirty || validated ? valid : null
+      return dirty || validated ? valid : null;
     },
     resetForm() {
       this.form = {
@@ -376,18 +390,19 @@ export default {
         nombreEmpresa: null,
         fecha: null,
         croquisOficina: null,
-      }
+      };
       this.$nextTick(() => {
-        this.$refs.observer.reset()
-      })
+        this.$refs.observer.reset();
+      });
     },
     onSubmit() {
       // alert('Formulado Envíado!')
-      console.log('Envìando Formulario')
-      this.enviar()
+      console.log("Envìando Formulario");
+      //this.$bvModal.show("alerta")
+      //this.enviar();
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -395,6 +410,7 @@ export default {
   border-color: #235b4e !important;
   background-color: #235b4e !important;
   font-weight: bolder;
+  width: 270px;
 }
 .buzon {
   font-weight: bolder;
@@ -421,25 +437,27 @@ body {
   border-radius: 5px;
   font-size: 14px;
   font-weight: 500;
+  margin-left: 80px;
+  margin-right: 250px;
 }
 
 .button-outline-secondary {
-  border: 1px solid #9F2241;
+  border: 3px solid #9f2241;
   background-color: transparent;
-  color: #9F2241;
+  color: #9f2241;
 }
 
 .button-primary {
-  border-color: #235B4E;
-  background-color: #235B4E;
+  border-color: #235b4e;
+  background-color: #235b4e;
   color: white;
-  padding: 10px 90px;
+  padding: 10px 10px;
 }
 
 .button-outline-primary {
-  border: 1px solid #9F2241;
+  border: 1px solid #9f2241;
   background-color: transparent;
-  color: #9F2241;
+  color: #9f2241;
 }
 
 header {
@@ -449,44 +467,45 @@ header {
   top: 0;
   z-index: 100;
   -webkit-box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.089);
-          box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.089);
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.089);
 }
 header .header-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 header .header-content .header-logo {
-  width: 300px;
+  width: 500px;
 }
 header .header-content .header-menu {
-  width: 100%;
+  width: 10%;
+  margin-left: 60%;
 }
 header .header-content .header-menu ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 0;
   list-style: none;
   margin: 0;
   height: 80px;
 }
 header .header-content .header-menu ul a {
-  margin-right: 30px;
+  margin-right: 100px;
   padding: 2px 0;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
   -webkit-transition: 0.2s ease-in-out all;
   transition: 0.2s ease-in-out all;
   text-decoration: none;
@@ -499,8 +518,8 @@ header .header-content .header-menu ul a li {
   transition: 0.2s ease-in-out all;
 }
 header .header-content .header-menu ul a:hover {
-  border-bottom: 2px solid #235B4E;
-  color: #235B4E;
+  border-bottom: 2px solid #235b4e;
+  color: #235b4e;
 }
 header .header-content .header-menu ul a:last-child {
   margin-right: 0;
@@ -536,8 +555,9 @@ header .responsive-header-menu ul li a {
   transition: 0.2s ease-in-out all;
 }
 header .responsive-header-menu ul li a:hover {
-  color: #235B4E;
+  color: #235b4e;
   text-decoration: none;
+  margin-right: 90%;
 }
 header .responsive-header-menu ul li:last-child {
   margin-right: 0;
@@ -568,7 +588,7 @@ header .responsive-header-menu ul li:last-child {
 
 .card-title-background {
   width: 100%;
-  background-color: #235B4E;
+  background-color: #235b4e;
   padding: 30px 34px 64px 34px;
   border-radius: 10px;
   background-repeat: no-repeat;
@@ -589,14 +609,14 @@ header .responsive-header-menu ul li:last-child {
 }
 
 .footer-div {
-  background-color: #BC955C;
+  background-color: #bc955c;
   height: 7px;
   width: 100%;
 }
 
 .footer-container {
-  background-color: #235B4E;
-  color: #AEC3BE;
+  background-color: #235b4e;
+  color: #aec3be;
   padding: 30px 0;
   font-size: 12px;
 }
@@ -618,7 +638,7 @@ header .responsive-header-menu ul li:last-child {
   margin-bottom: 6px;
 }
 .footer-container ul li a {
-  color: #AEC3BE;
+  color: #aec3be;
   text-decoration: none;
   -webkit-transition: 0.2s ease-in-out all;
   transition: 0.2s ease-in-out all;
@@ -648,11 +668,84 @@ header .responsive-header-menu ul li:last-child {
 
   .social-links {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
-.formulario{
-   width: 70%;
+.formulario {
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 2%;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 10px 10px 25px #d3d6d4de;
+}
+.delfin {
+  margin-left: 50px;
+  font-size: 12.5px;
+  font-weight: bold;
+  height: 30px;
+}
+.nombre {
+  width: 90%;
+  margin-left: 50px;
+  margin-right: 400px;
+  font-weight: bold;
+}
+
+.correo {
+  width: 97%;
+  margin-left: -10px;
+  margin-right: 50px;
+  font-weight: bold;
+}
+.descripcion {
+  width: 91%;
+  margin-left: 51px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.apartado {
+  width: 91%;
+  margin-left: 47px;
+  margin-right: -50px;
+  font-weight: bold;
+}
+.hechos {
+  width: 91%;
+  margin-left: 47px;
+  margin-right: -50px;
+  font-weight: bold;
+}
+.empresa {
+  width: 130%;
+  margin-left: 47px;
+  margin-right: -50px;
+  font-weight: bold;
+}
+
+.fecha {
+  width: 115%;
+  margin-right: 400px;
+  margin-left: -190px;
+  font-weight: bold;
+}
+
+.croquis {
+  width: 130%;
+  margin-right: 200px;
+  margin-left: -150px;
+  padding: 2px 0;
+  font-weight: bold;
+}
+.aceptar {
+  height: 60px;
+}
+.enviar {
+  height: 60px;
+}
+.estiloFecha {
+  margin-left: -65%;
+  font-weight: bold;
 }
 </style>

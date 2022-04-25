@@ -7,55 +7,34 @@
             <b-img
               :src="require('@/imagenes/cdmx-ssc-color.svg')"
               alt="Image 1"
-              :height="40"
+              :height="50"
             />
           </a>
         </div>
         <div class="header-menu">
           <ul>
-            <a
-              href="#inicio"
-              class="link"
-            >
+            <a href="#inicio" class="link">
               <li>Seguridad Privada</li>
             </a>
-            <a
-              href="#inicio"
-              class="link"
-            />
-            <a
-              href="#inicio"
-              class="link"
-            >
+            <a href="#inicio" class="link" />
+            <a href="#inicio" class="link">
               <li>Estrado Electrónico</li>
             </a>
           </ul>
         </div>
         <div class="header-icon">
-          <i
-            id="menu"
-            class="fas fa-bars"
-          />
+          <i id="menu" class="fas fa-bars" />
         </div>
         <div class="responsive-header-menu">
           <ul>
             <li>
-              <a
-                href="#inicio"
-                class="link movement"
-              >Seguridad Privada</a>
+              <a href="#inicio" class="link movement">Seguridad Privada</a>
             </li>
+
             <li>
-              <a
-                href="#inicio"
-                class="link movement"
-              >Buzón de Quejas</a>
-            </li>
-            <li>
-              <a
-                href="#quienes-somos"
-                class="link movement"
-              >Estrado Electrónico</a>
+              <a href="#quienes-somos" class="link movement"
+                >Estrado Electrónico</a
+              >
             </li>
           </ul>
         </div>
@@ -64,7 +43,7 @@
   </div>
 </template>
 <script>
-import { BImg } from 'bootstrap-vue'
+import { BImg } from "bootstrap-vue";
 
 export default {
   components: {
@@ -77,9 +56,9 @@ export default {
       file: null,
       userEmail: null,
       footer: null,
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -96,9 +75,11 @@ export default {
 }
 .header-content .header-logo {
   width: 100%;
+  margin: 2%;
 }
 .header-menu {
   width: 300%;
+  margin: 10;
 }
 .header-menu ul {
   display: -webkit-box;
@@ -113,12 +94,12 @@ export default {
   padding: 0;
   list-style: none;
   margin: 0;
-  height: px;
+  height: 10%px;
 }
 .header-menu ul a {
-  margin-right: 80px;
-  padding: 2px 0;
-  border-bottom: 2px solid white;
+  margin-right: 20px;
+  padding: 5px 0;
+  border-bottom: 5px solid white;
   -webkit-transition: 0.2s ease-in-out all;
   transition: 0.2s ease-in-out all;
   text-decoration: none;
@@ -131,7 +112,7 @@ export default {
   transition: 0.2s ease-in-out all;
 }
 .header-menu ul a:hover {
-  border-bottom: 2px solid #235b4e;
+  border-bottom: 4px solid #235b4e;
   color: #235b4e;
 }
 .header-menu ul a:last-child {
@@ -184,7 +165,8 @@ export default {
     display: block;
   }
   .header-content .header-logo {
-    width: 243px;
+    width: 2px;
+    height: 200px;
   }
   .header-content .header-icon {
     display: block;
@@ -192,7 +174,15 @@ export default {
     font-size: 210%;
   }
 }
-.header{
-    margin-bottom: 20px;
-  }
+.header {
+  margin-bottom: 20px;
+}
+.container {
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 2%;
+}
+.contenedor {
+  width: 10%;
+}
 </style>

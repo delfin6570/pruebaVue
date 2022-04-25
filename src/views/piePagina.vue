@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="magenFin">
     <div class="footer-div" />
     <div class="footer-container">
       <b-row>
@@ -183,6 +183,7 @@ export default {
   font-size: 15px;
   border-bottom-left-radius: 15px 15px;
   border-bottom-right-radius: 15px 15px;
+  
 }
 .footer-container .footer-img {
   width: 150px;
@@ -239,10 +240,15 @@ export default {
     background-color: #bc955c;
     height: 7px;
     width: 100%;
+    
   }
 }
 
 .margen {
   margin-left: 15%;
+}
+
+.magenFin{
+  margin-top: 2%;
 }
 </style>
