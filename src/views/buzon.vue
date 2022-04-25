@@ -41,7 +41,7 @@ export default {
         border-radius: 15px;
         background: #235B4E;
         width: 92%;
-        height: 100%;
+        height: 100px;
         margin-left: 4%;
         // width: -moz-available;
         object-fit: containt;
@@ -53,7 +53,7 @@ export default {
         font-size:35px;
         color: #BC955C;
     }
-    .imagen{
+    .imagen{margin-top: 3%;
       border-radius: 15px;
       margin-left: 1%;
     }
