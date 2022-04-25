@@ -13,28 +13,44 @@
         </div>
         <div class="header-menu">
           <ul>
-            <a href="#inicio" class="link">
+            <a
+              href="#inicio"
+              class="link"
+            >
               <li>Seguridad Privada</li>
             </a>
-            <a href="#inicio" class="link" />
-            <a href="#inicio" class="link">
+            <a
+              href="#inicio"
+              class="link"
+            />
+            <a
+              href="#inicio"
+              class="link"
+            >
               <li>Estrado Electrónico</li>
             </a>
           </ul>
         </div>
         <div class="header-icon">
-          <i id="menu" class="fas fa-bars" />
+          <i
+            id="menu"
+            class="fas fa-bars"
+          />
         </div>
         <div class="responsive-header-menu">
           <ul>
             <li>
-              <a href="#inicio" class="link movement">Seguridad Privada</a>
+              <a
+                href="#inicio"
+                class="link movement"
+              >Seguridad Privada</a>
             </li>
 
             <li>
-              <a href="#quienes-somos" class="link movement"
-                >Estrado Electrónico</a
-              >
+              <a
+                href="#quienes-somos"
+                class="link movement"
+              >Estrado Electrónico</a>
             </li>
           </ul>
         </div>
@@ -43,7 +59,7 @@
   </div>
 </template>
 <script>
-import { BImg } from "bootstrap-vue";
+import { BImg } from 'bootstrap-vue'
 
 export default {
   components: {
@@ -56,9 +72,9 @@ export default {
       file: null,
       userEmail: null,
       footer: null,
-    };
+    }
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -165,7 +181,7 @@ export default {
     display: block;
   }
   .header-content .header-logo {
-    width: 2px;
+    width: 5px;
     height: 200px;
   }
   .header-content .header-icon {
