@@ -149,19 +149,27 @@
                 class="empresa"
                 label="Nombre de la empresa de seguridad privada"
                 label-for="nombreE"
+                <b-row
               >
-                <b-form-input
-                  id="nombreE"
-                  v-model="form.nombreEmpresa"
-                  name="nombreE"
-                  :state="getValidationState(validationContext)"
-                  aria-describedby="input-1-live-feedback"
-                  placeholder="Empresa de Seguridad Privada"
-                />
-                <b-form-invalid-feedback id="input-1-live-feedback">{{
-                  validationContext.errors[0]
-                }}</b-form-invalid-feedback>
-              </b-form-group>
+                <b-col cols="4">
+                  <validation-provider
+                    v-slot="validationContext"
+                    name="NombreEmpresa"
+                    :rules="{ required: true, min: 3 }"
+                  >>>>>>> 65106875f7c4c121ef6a9408b7bb88411216ab52 >
+                    <b-form-input
+                      id="nombreE"
+                      v-model="form.nombreEmpresa"
+                      h-e-a-d
+                      name="nombreE"
+                      :state="getValidationState(validationContext)"
+                      aria-describedby="input-1-live-feedback"
+                      placeholder="Empresa de Seguridad Privada"
+                    />
+                    <b-form-invalid-feedback id="input-1-live-feedback">{{
+                      validationContext.errors[0]
+                    }}</b-form-invalid-feedback>
+                  </validation-provider></b-col></b-form-group>
             </validation-provider>
           </b-col>
 
@@ -251,6 +259,102 @@
           <b-card-text> Se envio correctamente </b-card-text>
         </b-modal>
       </b-form>
+      ======= class="empresa" label="Nombre de la empresa de seguridad privada"
+      label-for="nombreE" >
+      <b-form-input
+        id="nombreE"
+        v-model="form.nombreEmpresa"
+        name="nombreE"
+        :state="getValidationState(validationContext)"
+        aria-describedby="input-1-live-feedback"
+        placeholder="Empresa de Seguridad Privada"
+      />
+      <b-form-invalid-feedback id="input-1-live-feedback">{{
+        validationContext.errors[0]
+      }}</b-form-invalid-feedback>
+
+      <b-col cols="4">
+        <b-form-group>
+          <div>
+            <label
+              class="estiloFecha"
+              for="fecha"
+            >Fecha</label>
+            <b-form-datepicker
+              id="fecha"
+              v-model="form.fecha"
+              label-help="Usa las teclas del cursor"
+              class="fecha"
+              label-no-date-selected="No a seleccionado una fecha"
+              placeholder="Sin fecha seleccionada"
+            />
+          </div>
+        </b-form-group>
+      </b-col>
+
+      <b-col cols="4">
+        <b-form-group
+          id="croquis"
+          class="croquis"
+          label="Croquis de la oficina o lugar donde ocurrieron los hechos"
+          label-for="croquis"
+        >
+          <b-form-file
+            v-model="form.croquisOficina"
+            browse-text="Buscar"
+            placeholder="Selecciona un documento y arrastra aqui..."
+            accept=".jpg, .png, .gif, .pdf, .docx"
+          />
+        </b-form-group>
+      </b-col>
+
+      <b-row align-h="center">
+        <b-col md="mt-3">
+          <b-button
+            class="buzon"
+            variant="outline-danger"
+            align-h="center"
+          >Consulta de aviso de privacidad
+          </b-button>
+          <br>
+          <br>
+          <b-row align-h="center">
+            <b-col md="mt-3">
+              <b-form-checkbox
+                v-model="status"
+                name="checkbox-1"
+                value="accepted"
+                class="aceptar"
+              >Acepto de aviso de privacidad
+              </b-form-checkbox>
+              <div class="enviar">
+                <b-row align-h="center">
+                  <b-col md="6" />
+                  <b-button
+                    type="submit"
+                    variant="primary"
+                    class="boton"
+                  >
+                    Enviar
+                  </b-button>
+                </b-row>
+              </div>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
+
+      <b-modal
+        id="alerta"
+        ok-only
+        ok-variant="success"
+        ok-title="Cerrar"
+        modal-class="modal-success"
+        centered
+        title="Aviso"
+      >
+        <b-card-text> Se envio correctamente </b-card-text>
+      </b-modal>
     </validation-observer>
   </div>
 </template>
@@ -287,6 +391,10 @@ import {
 import axios from 'axios'
 import es from 'vee-validate/dist/locale/es.json'
 
+import Ripple from 'vue-ripple-directive'
+import swal from 'sweetalert2'
+
+window.Swal = swal
 localize('es', es)
 export default {
   components: {
@@ -311,6 +419,9 @@ export default {
     // BNnavbar,
     // BAlert,
     // BContainer,
+  },
+  directives: {
+    Ripple,
   },
   data() {
     return {
@@ -340,13 +451,15 @@ export default {
     }
   },
   methods: {
+    success() {
+      Swal.fire('Correcto', 'Enviado correctamente', 'success')
+    },
     enviar() {
-      console.log(this.form.nombre)
-      console.log('hola Mundo')
       axios
         .post('http://10.13.123.94:8010/api/v1/prueba', this.form)
         .then(response => {
           console.log(response)
+          this.success()
           this.resetForm()
         })
         .catch(error => {
@@ -374,9 +487,9 @@ export default {
     onSubmit() {
       // alert('Formulado Envíado!')
       console.log('Envìando Formulario')
-      this.$bvModal.show('alerta')
-      this.resetForm()
-      // this.enviar();
+      // this.$bvModal.show("alerta")
+      // this.success()
+      this.enviar()
     },
   },
 }
