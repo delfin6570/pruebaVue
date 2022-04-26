@@ -140,7 +140,7 @@
           </validation-provider>
 
           <b-row>
-            <b-col>
+            <b-col cols="4">
               <validation-provider
                 v-slot="validationContext"
                 name="NombreEmpresa"
@@ -166,13 +166,8 @@
                 </b-form-group>
               </validation-provider>
             </b-col>
-
-            <b-col>
-                <b-form-group>
-                </b-form-group>
-            </b-col>
-            
-            <b-col>
+           
+            <b-col cols="4">
                 <b-form-group>
                   <div>
                     <label
@@ -191,7 +186,8 @@
 
                 </b-form-group>
             </b-col>
-            <b-col>
+            
+            <b-col cols="4">
               
                 <b-form-group
                   id="croquis"
@@ -246,6 +242,7 @@
               </b-row>
             </b-col>
           </b-row>
+
           <b-modal
             id="alerta"
             ok-only
@@ -296,6 +293,9 @@ import {
 import axios from 'axios'
 import es from 'vee-validate/dist/locale/es.json'
 
+import Ripple from 'vue-ripple-directive'
+import swal from 'sweetalert2';
+window.Swal = swal;
 localize('es', es)
 export default {
   components: {
@@ -349,14 +349,19 @@ export default {
       },
     }
   },
+  directives: {
+    Ripple,
+  },
   methods: {
+    success() {
+      Swal.fire('Correcto', 'Enviado correctamente','success');
+    },
     enviar() {
-      console.log(this.form.nombre)
-      console.log('hola Mundo')
       axios
         .post('http://10.13.123.94:8010/api/v1/prueba', this.form)
         .then(response => {
           console.log(response)
+          this.success()
           this.resetForm()
         })
         .catch(error => {
@@ -384,9 +389,9 @@ export default {
     onSubmit() {
       // alert('Formulado Envíado!')
       console.log('Envìando Formulario')
-      this.$bvModal.show("alerta")
-      this.resetForm()
-      // this.enviar();
+      //this.$bvModal.show("alerta")
+      //this.success()
+      this.enviar();
     },
   },
 }
