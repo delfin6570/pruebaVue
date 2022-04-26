@@ -10,63 +10,63 @@
       >Llene todos los campos para levantar una queja a una Empresa de
         Seguridad Privada
       </label>
-        <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
-          <b-row>
-            <b-col>
-              <validation-provider
-                v-slot="validationContext"
-                name="Nombre"
-                :rules="{ required: true, min: 3 }"
+      <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
+        <b-row>
+          <b-col>
+            <validation-provider
+              v-slot="validationContext"
+              name="Nombre"
+              :rules="{ required: true, min: 3 }"
+            >
+              <b-form-group
+                id="nombre"
+                class="nombre"
+                label="Nombre"
+                label-for="nombre"
               >
-                <b-form-group
+                <b-form-input
                   id="nombre"
-                  class="nombre"
-                  label="Nombre"
-                  label-for="nombre"
-                >
-                  <b-form-input
-                    id="nombre"
-                    v-model="form.Nombre"
-                    name="nombre"
-                    :state="getValidationState(validationContext)"
-                    aria-describedby="input-1-live-feedback"
-                    placeholder="Introduce tu nombre aqui"
-                  />
+                  v-model="form.Nombre"
+                  name="nombre"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="input-1-live-feedback"
+                  placeholder="Introduce tu nombre aqui"
+                />
 
-                  <b-form-invalid-feedback id="input-1-live-feedback">{{
-                    validationContext.errors[0]
-                  }}</b-form-invalid-feedback>
-                </b-form-group>
-              </validation-provider>
-            </b-col>
-            <b-col>
-              <validation-provider
-                v-slot="validationContext"
-                name="CorreoE"
-                :rules="{ required: true, min: 3 }"
+                <b-form-invalid-feedback id="input-1-live-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider>
+          </b-col>
+          <b-col>
+            <validation-provider
+              v-slot="validationContext"
+              name="CorreoE"
+              :rules="{ required: true, min: 3 }"
+            >
+              <b-form-group
+                id="correo"
+                class="correo"
+                label="Correo electrónico o teléfono"
+                label-for="correo"
               >
-                <b-form-group
+                <b-form-input
                   id="correo"
+                  v-model="form.CorreoElectronico"
+                  name="correo"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="input-1-live-feedback"
                   class="correo"
-                  label="Correo electrónico o teléfono"
-                  label-for="correo"
-                >
-                  <b-form-input
-                    id="correo"
-                    v-model="form.CorreoElectronico"
-                    name="correo"
-                    :state="getValidationState(validationContext)"
-                    aria-describedby="input-1-live-feedback"
-                    class="correo"
-                    placeholder="Introduce tu método de contacto"
-                  />
+                  placeholder="Introduce tu método de contacto"
+                />
 
-                  <b-form-invalid-feedback id="input-1-live-feedback">{{
-                    validationContext.errors[0]
-                  }}</b-form-invalid-feedback>
-                </b-form-group>
-              </validation-provider>
-            </b-col>
+                <b-form-invalid-feedback id="input-1-live-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider>
+          </b-col>
         </b-row>
 
         <b-row>
@@ -96,170 +96,161 @@
             </b-form-group>
           </validation-provider>
         </b-row>
-       
-       
+
+        <b-form-group
+          id="pruebas"
+          class="apartado"
+          label="Apartado para adjuntar pruebas (fotos, documentos, etc)"
+          label-for="pruebas"
+        >
+          <b-form-file
+            v-model="form.apartadoPruebas"
+            browse-text="Buscar"
+            placeholder="Selecciona un documento y arrastra aqui..."
+            accept=".jpg, .png, .gif, .pdf, .docx"
+          />
+        </b-form-group>
+
+        <validation-provider
+          v-slot="validationContext"
+          name="Lugar Hechos"
+          :rules="{ required: true, min: 3 }"
+        >
+          <b-form-group
+            id="lugar"
+            class="hechos"
+            label="Lugar de los hechos"
+            label-for="lugar"
+          >
+            <b-form-input
+              id="lugar"
+              v-model="form.lugarHechos"
+              name="lugar"
+              :state="getValidationState(validationContext)"
+              aria-describedby="input-1-live-feedback"
+              placeholder="Introduce el lugar de los hechos"
+            />
+
+            <b-form-invalid-feedback id="input-1-live-feedback">{{
+              validationContext.errors[0]
+            }}</b-form-invalid-feedback>
+          </b-form-group>
+        </validation-provider>
+
+        <b-row>
+          <b-col>
+            <validation-provider
+              v-slot="validationContext"
+              name="NombreEmpresa"
+              :rules="{ required: true, min: 3 }"
+            >
+              <b-form-group
+                id="nombreE"
+                class="empresa"
+                label="Nombre de la empresa de seguridad privada"
+                label-for="nombreE"
+              >
+                <b-form-input
+                  id="nombreE"
+                  v-model="form.nombreEmpresa"
+                  name="nombreE"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="input-1-live-feedback"
+                  placeholder="Empresa de Seguridad Privada"
+                />
+                <b-form-invalid-feedback id="input-1-live-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider>
+          </b-col>
+
+          <b-col>
+            <b-form-group />
+          </b-col>
+
+          <b-col>
+            <b-form-group>
+              <div>
+                <label
+                  class="estiloFecha"
+                  for="fecha"
+                >Fecha</label>
+                <b-form-datepicker
+                  id="fecha"
+                  v-model="form.fecha"
+                  label-help="Usa las teclas del cursor"
+                  class="fecha"
+                  label-no-date-selected="No a seleccionado una fecha"
+                  placeholder="Sin fecha seleccionada"
+                />
+              </div>
+            </b-form-group>
+          </b-col>
+          <b-col>
             <b-form-group
-              id="pruebas"
-              class="apartado"
-              label="Apartado para adjuntar pruebas (fotos, documentos, etc)"
-              label-for="pruebas"
+              id="croquis"
+              class="croquis"
+              label="Croquis de la oficina o lugar donde ocurrieron los hechos"
+              label-for="croquis"
             >
               <b-form-file
-                v-model="form.apartadoPruebas"
+                v-model="form.croquisOficina"
                 browse-text="Buscar"
                 placeholder="Selecciona un documento y arrastra aqui..."
                 accept=".jpg, .png, .gif, .pdf, .docx"
               />
-
             </b-form-group>
+          </b-col>
+        </b-row>
 
-          <validation-provider
-            v-slot="validationContext"
-            name="Lugar Hechos"
-            :rules="{ required: true, min: 3 }"
-          >
-            <b-form-group
-              id="lugar"
-              class="hechos"
-              label="Lugar de los hechos"
-              label-for="lugar"
-            >
-              <b-form-input
-                id="lugar"
-                v-model="form.lugarHechos"
-                name="lugar"
-                :state="getValidationState(validationContext)"
-                aria-describedby="input-1-live-feedback"
-                placeholder="Introduce el lugar de los hechos"
-              />
-
-              <b-form-invalid-feedback id="input-1-live-feedback">{{
-                validationContext.errors[0]
-              }}</b-form-invalid-feedback>
-            </b-form-group>
-          </validation-provider>
-
-          <b-row>
-            <b-col>
-              <validation-provider
-                v-slot="validationContext"
-                name="NombreEmpresa"
-                :rules="{ required: true, min: 3 }"
-              >
-                <b-form-group
-                  id="nombreE"
-                  class="empresa"
-                  label="Nombre de la empresa de seguridad privada"
-                  label-for="nombreE"
-                >
-                  <b-form-input
-                    id="nombreE"
-                    v-model="form.nombreEmpresa"
-                    name="nombreE"
-                    :state="getValidationState(validationContext)"
-                    aria-describedby="input-1-live-feedback"
-                    placeholder="Empresa de Seguridad Privada"
-                  />
-                  <b-form-invalid-feedback id="input-1-live-feedback">{{
-                    validationContext.errors[0]
-                  }}</b-form-invalid-feedback>
-                </b-form-group>
-              </validation-provider>
-            </b-col>
-
-            <b-col>
-                <b-form-group>
-                </b-form-group>
-            </b-col>
-            
-            <b-col>
-                <b-form-group>
-                  <div>
-                    <label
-                      class="estiloFecha"
-                      for="fecha"
-                    >Fecha</label>
-                    <b-form-datepicker
-                      id="fecha"
-                      v-model="form.fecha"
-                      label-help="Usa las teclas del cursor"
-                      class="fecha"
-                      label-no-date-selected="No a seleccionado una fecha"
-                      placeholder="Sin fecha seleccionada"
-                    />
-                  </div>
-
-                </b-form-group>
-            </b-col>
-            <b-col>
-              
-                <b-form-group
-                  id="croquis"
-                  class="croquis"
-                  label="Croquis de la oficina o lugar donde ocurrieron los hechos"
-                  label-for="croquis"
-                >
-                  <b-form-file
-                    v-model="form.croquisOficina"
-                    browse-text="Buscar"
-                    placeholder="Selecciona un documento y arrastra aqui..."
-                    accept=".jpg, .png, .gif, .pdf, .docx"
-                  />
-
-                </b-form-group>
-                
-            </b-col>
-          </b-row>
-          
-          <b-row align-h="center">
-            <b-col md="mt-3">
-              <b-button
-                class="buzon"
-                variant="outline-danger"
-                align-h="center"
-              >Consulta de aviso de privacidad
-              </b-button>
-              <br>
-              <br>
-              <b-row align-h="center">
-                <b-col md="mt-3">
-                  <b-form-checkbox
-                    v-model="status"
-                    name="checkbox-1"
-                    value="accepted"
-                    class="aceptar"
-                  >Acepto de aviso de privacidad
-                  </b-form-checkbox>
-                  <div class="enviar">
-                    <b-row align-h="center">
-                      <b-col md="6" />
-                      <b-button
-                        type="submit"
-                        variant="primary"
-                        class="boton"
-                      >
-                        Enviar
-                      </b-button>
-                    </b-row>
-                  </div>
-                </b-col>
-              </b-row>
-            </b-col>
-          </b-row>
-          <b-modal
-            id="alerta"
-            ok-only
-            ok-variant="success"
-            ok-title="Cerrar"
-            modal-class="modal-success"
-            centered
-            title="Aviso"
-          >
-            <b-card-text>
-              Se envio correctamente
-            </b-card-text>
-          </b-modal>
-        </b-form>
+        <b-row align-h="center">
+          <b-col md="mt-3">
+            <b-button
+              class="buzon"
+              variant="outline-danger"
+              align-h="center"
+            >Consulta de aviso de privacidad
+            </b-button>
+            <br>
+            <br>
+            <b-row align-h="center">
+              <b-col md="mt-3">
+                <b-form-checkbox
+                  v-model="status"
+                  name="checkbox-1"
+                  value="accepted"
+                  class="aceptar"
+                >Acepto de aviso de privacidad
+                </b-form-checkbox>
+                <div class="enviar">
+                  <b-row align-h="center">
+                    <b-col md="6" />
+                    <b-button
+                      type="submit"
+                      variant="primary"
+                      class="boton"
+                    >
+                      Enviar
+                    </b-button>
+                  </b-row>
+                </div>
+              </b-col>
+            </b-row>
+          </b-col>
+        </b-row>
+        <b-modal
+          id="alerta"
+          ok-only
+          ok-variant="success"
+          ok-title="Cerrar"
+          modal-class="modal-success"
+          centered
+          title="Aviso"
+        >
+          <b-card-text> Se envio correctamente </b-card-text>
+        </b-modal>
+      </b-form>
     </validation-observer>
   </div>
 </template>
@@ -300,10 +291,9 @@ localize('es', es)
 export default {
   components: {
     BCardText,
-    BFormSelect,
     BModal,
     BFormTextarea,
-    // BFormSelect,
+    BFormSelect,
     BFormInvalidFeedback,
     ValidationObserver,
     ValidationProvider,
@@ -327,7 +317,7 @@ export default {
       foods: [
         { value: null, text: 'Choose...' },
         { value: 'apple', text: 'Apple' },
-         { value: 'orange', text: 'Orange' },
+        { value: 'orange', text: 'Orange' },
       ],
       status: null,
       file: null,
@@ -384,7 +374,7 @@ export default {
     onSubmit() {
       // alert('Formulado Envíado!')
       console.log('Envìando Formulario')
-      this.$bvModal.show("alerta")
+      this.$bvModal.show('alerta')
       this.resetForm()
       // this.enviar();
     },
@@ -661,6 +651,7 @@ header .responsive-header-menu ul li:last-child {
 }
 .formulario {
   width: 92%;
+  margin: 2%;
   margin-left: 4%;
   margin-right: 2%;
   border-radius: 10px;
@@ -688,8 +679,8 @@ header .responsive-header-menu ul li:last-child {
 }
 .descripcion {
   width: 94%;
-  margin-left: 51px;
-  margin-right: 10px;
+  margin-left: 60px;
+  margin-right: 1450px;
   font-weight: bold;
 }
 .apartado {

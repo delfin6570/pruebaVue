@@ -1,8 +1,11 @@
 <template>
-  <div class="container">
+  <div class="formulario">
     <div class="header-content">
       <div class="header-logo">
-        <a href="#inicio">
+        <a
+          class="logo"
+          href="#inicio"
+        >
           <b-img
             :src="require('@/imagenes/cdmx-ssc-color.svg')"
             alt="Image 1"
@@ -84,10 +87,11 @@ export default {
   -ms-flex-align: center;
   align-items: center;
 }
-.header-content .header-logo {
+.header-content {
   width: 100%;
-  margin: 2%;
+  margin: 1%;
 }
+
 .header-menu {
   width: 300%;
   margin: 2%;
@@ -110,19 +114,20 @@ export default {
 .header-menu ul a {
   margin-right: 20px;
   padding: 5px 5;
-  border-bottom: 5px solid white;
+  border-bottom: 2px solid white;
   -webkit-transition: 0.2s ease-in-out all;
   transition: 0.2s ease-in-out all;
   text-decoration: none;
   color: gray;
-  margin-left: 4%;
-  margin-right: 2%;
 }
 .header-menu ul a li {
   font-weight: 600;
   font-size: 10.8px;
   -webkit-transition: 0.2s ease-in-out all;
   transition: 0.2s ease-in-out all;
+  margin-left: -55%;
+  margin-right: -200%;
+  font-weight: bold;
 }
 .header-menu ul a:hover {
   border-bottom: 4px solid #235b4e;
@@ -198,8 +203,8 @@ export default {
 .contenedor {
   width: 10%;
 }
-.link {
-  margin-left: 30%;
+.logo {
+  margin-left: 20%;
   margin-right: 2%;
 }
 </style>

@@ -26,7 +26,7 @@ const router = new VueRouter({
     },
     {
 
-      path: '/estadoElectronicoo',
+      path: '/estadoElectronico',
       name: 'estadoElectronico',
       component: () => import('@/views/SecondPage.vue'),
       meta: {

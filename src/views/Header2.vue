@@ -13,6 +13,7 @@
         alt="Image 2"
         :height="40"
       />
+      class="privadaES"
       <a href="#">Seguridad Privada</a>
       <a href="#">Estrado Electrónico</a>
     </b-col>
