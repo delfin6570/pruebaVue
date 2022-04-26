@@ -295,7 +295,7 @@ import es from 'vee-validate/dist/locale/es.json'
 
 import Ripple from 'vue-ripple-directive'
 import swal from 'sweetalert2';
-window.Swal = swal;
+
 localize('es', es)
 export default {
   components: {
@@ -354,7 +354,15 @@ export default {
   },
   methods: {
     success() {
-      Swal.fire('Correcto', 'Enviado correctamente','success');
+      swal.fire({
+        title: 'Correcto',
+        text: 'mensaje Correcto',
+        buttonsStyling: false,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        confirmButtonClass: 'btn btn-success',
+        icon: 'success',
+      })
     },
     enviar() {
       axios
@@ -390,7 +398,7 @@ export default {
       // alert('Formulado Envíado!')
       console.log('Envìando Formulario')
       //this.$bvModal.show("alerta")
-      //this.success()
+      // this.success()
       this.enviar();
     },
   },
