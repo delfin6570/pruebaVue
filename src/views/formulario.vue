@@ -227,6 +227,7 @@
                       type="submit"
                       variant="primary"
                       class="boton"
+                      @click.prevent="onSubmit"
                     >
                       Enviar
                     </b-button>
@@ -258,9 +259,9 @@ import {
   // BFormInvalidfeedback,
   // BFormSelect,
   // BCard,
+  // BFormSelect,
   BCardText,
   BForm,
-  // BFormSelect,
   BFormInvalidFeedback,
   BFormInput,
   BFormTextarea,
@@ -285,9 +286,8 @@ import {
 // import axios from 'axios'
 import es from 'vee-validate/dist/locale/es.json'
 import Ripple from 'vue-ripple-directive'
-import swal from 'sweetalert2'
-
-window.Swal = swal
+// import swal from 'sweetalert2'
+// window.Swal = swal
 localize('es', es)
 export default {
   components: {
@@ -401,10 +401,16 @@ export default {
     },
     onSubmit() {
       // alert('Formulado Envíado!')
-      console.log('Envìando Formulario')
+      // console.log('Envìando Formulario')
       // this.$bvModal.show("alerta")
       // this.success()
-      this.enviar()
+      this.$refs.observer.validate().then(success => {
+        if (success) {
+          this.enviar()
+        } else {
+          this.error()
+        }
+      })
     },
   },
 }
@@ -678,14 +684,14 @@ header .responsive-header-menu ul li:last-child {
   height: 30px;
 }
 .nombre {
-  width: 95%;
+  width: 97%;
   margin-left: 50px;
   margin-right: 400px;
   font-weight: bold;
 }
 .correo {
-  width: 97%;
-  margin-left: px;
+  width: 95.5%;
+  margin-left: 10px;
   margin-right: 70px;
   font-weight: bold;
 }

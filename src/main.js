@@ -9,7 +9,7 @@ import App from './App.vue'
 
 // Global Components
 import './global-components'
-
+import '@/libs/sweet-alerts'
 // 3rd party plugins
 import '@/libs/portal-vue'
 import '@/libs/toastification'

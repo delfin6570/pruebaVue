@@ -113,12 +113,12 @@ export default {
 }
 .header-menu ul a {
   margin-right: 20px;
-  padding: 5px 5;
+  padding: 8px 8px;
   border-bottom: 2px solid white;
   -webkit-transition: 0.2s ease-in-out all;
   transition: 0.2s ease-in-out all;
   text-decoration: none;
-  color: gray;
+  color: black;
 }
 .header-menu ul a li {
   font-weight: 600;
@@ -132,19 +132,21 @@ export default {
 .header-menu ul a:hover {
   border-bottom: 4px solid #235b4e;
   color: #235b4e;
+  
 }
 .header-menu ul a:last-child {
   margin-right: 0px;
 }
 .header-menu ul li:last-child {
-  margin-right: auto;
+  margin-left: -70%;
+  margin-right: -200%;
 }
 .header-icon {
   display: none;
 }
 .responsive-header-menu {
   display: none;
-  width: 100%;
+  width: 50%;
 }
 .responsive-header-menu ul {
   height: 100vh;
@@ -193,7 +195,7 @@ export default {
   }
 }
 .header {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .container {
   width: 92%;
@@ -205,6 +207,11 @@ export default {
 }
 .logo {
   margin-left: 20%;
+  margin-right: 2%;
+}
+.link {
+  width: 7%;
+  margin-left: -1%;
   margin-right: 2%;
 }
 </style>
