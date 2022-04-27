@@ -1,15 +1,19 @@
 <template>
   <div class="formulario">
-    <validation-observer
-      ref="observer"
-      v-slot="{ handleSubmit }"
+    <b-overlay
+      :show="show"
+      rounded="sm"
     >
-      <br>
-      <label
-        class="delfin"
-      >Llene todos los campos para levantar una queja a una Empresa de
-        Seguridad Privada
-      </label>
+      <validation-observer
+        ref="observer"
+        v-slot="{ handleSubmit }"
+      >
+        <br>
+        <label
+          class="delfin"
+        >Llene todos los campos para levantar una queja a una Empresa de
+          Seguridad Privada
+        </label>
         <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
           <b-row>
             <b-col>
@@ -42,7 +46,7 @@
             <b-col>
               <validation-provider
                 v-slot="validationContext"
-                name="CorreoE"
+                name="Correo o Telefono"
                 :rules="{ required: true, min: 3 }"
               >
                 <b-form-group
@@ -67,37 +71,41 @@
                 </b-form-group>
               </validation-provider>
             </b-col>
-        </b-row>
+          </b-row>
 
-        <b-row>
-          <validation-provider
-            v-slot="validationContext"
-            name="DescripcionH"
-            :rules="{ required: true, min: 3 }"
-          >
-            <b-form-group
-              id="descripcion"
-              class="descripcion"
-              label="Descripción de los hechos"
-              label-for="descripcion"
+          <b-row>
+            <validation-provider
+              v-slot="validationContext"
+              name="DescripcionH"
+              :rules="{ required: true, min: 3 }"
             >
-              <b-form-textarea
+              <b-form-group
                 id="descripcion"
-                v-model="form.descripcionHechos"
-                name="descripcionHechos"
-                :state="getValidationState(validationContext)"
-                aria-describedby="input-1-live-feedback"
-                placeholder="Introduce la descripción"
-              />
+                class="descripcion"
+                label="Descripción de los hechos"
+                label-for="descripcion"
+              >
+                <b-form-textarea
+                  id="descripcion"
+                  v-model="form.descripcionHechos"
+                  name="descripcionHechos"
+                  :state="getValidationState(validationContext)"
+                  aria-describedby="input-1-live-feedback"
+                  placeholder="Introduce la descripción"
+                />
 
-              <b-form-invalid-feedback id="input-1-live-feedback">{{
-                validationContext.errors[0]
-              }}</b-form-invalid-feedback>
-            </b-form-group>
-          </validation-provider>
-        </b-row>
-       
-       
+                <b-form-invalid-feedback id="input-1-live-feedback">{{
+                  validationContext.errors[0]
+                }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider>
+          </b-row>
+
+          <validation-provider
+              name="pruebas"
+              :rules="{ required: true }"
+              v-slot="validationContext"
+            >
             <b-form-group
               id="pruebas"
               class="apartado"
@@ -105,13 +113,16 @@
               label-for="pruebas"
             >
               <b-form-file
+                :state="Boolean(form.apartadoPruebas)"
+
                 v-model="form.apartadoPruebas"
                 browse-text="Buscar"
                 placeholder="Selecciona un documento y arrastra aqui..."
                 accept=".jpg, .png, .gif, .pdf, .docx"
               />
-
+              <b-form-invalid-feedback id="input-1-live-feedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
             </b-form-group>
+          </validation-provider>
 
           <validation-provider
             v-slot="validationContext"
@@ -166,47 +177,60 @@
                 </b-form-group>
               </validation-provider>
             </b-col>
-           
-            <b-col cols="4">
-                <b-form-group>
-                  <div>
-                    <label
-                      class="estiloFecha"
-                      for="fecha"
-                    >Fecha</label>
-                    <b-form-datepicker
-                      id="fecha"
-                      v-model="form.fecha"
-                      label-help="Usa las teclas del cursor"
-                      class="fecha"
-                      label-no-date-selected="No a seleccionado una fecha"
-                      placeholder="Sin fecha seleccionada"
-                    />
-                  </div>
 
-                </b-form-group>
-            </b-col>
-            
             <b-col cols="4">
-              
-                <b-form-group
-                  id="croquis"
-                  class="croquis"
-                  label="Croquis de la oficina o lugar donde ocurrieron los hechos"
-                  label-for="croquis"
-                >
-                  <b-form-file
-                    v-model="form.croquisOficina"
-                    browse-text="Buscar"
-                    placeholder="Selecciona un documento y arrastra aqui..."
-                    accept=".jpg, .png, .gif, .pdf, .docx"
+              <validation-provider
+              name="fecha"
+              :rules="{ required: true }"
+              v-slot="validationContext"
+            >
+              <b-form-group>
+                <div>
+                  <label
+                    class="estiloFecha"
+                    for="fecha"
+                  >Fecha</label>
+                  <b-form-datepicker
+                    id="fecha"
+                    :state="Boolean(form.fecha)"
+                    v-model="form.fecha"
+                    label-help="Usa las teclas del cursor"
+                    class="fecha"
+                    label-no-date-selected="No a seleccionado una fecha"
+                    placeholder="Sin fecha seleccionada"
                   />
+                </div>
+                <b-form-invalid-feedback id="input-1-live-feedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
+              </b-form-group>
+            </validation-provider>
+            </b-col>
 
+            <b-col cols="4">
+              <validation-provider
+              name="coquis"
+              :rules="{ required: true }"
+              v-slot="validationContext"
+            >
+                  <b-form-group
+                    id="croquis"
+                    class="croquis"
+                    label="Croquis de la oficina o lugar donde ocurrieron los hechos"
+                    label-for="croquis"
+                  >
+                    <b-form-file
+                      v-model="form.croquisOficina"
+                    :state="Boolean(form.croquisOficina)"
+
+                      browse-text="Buscar"
+                      placeholder="Selecciona un documento y arrastra aqui..."
+                      accept=".jpg, .png, .gif, .pdf, .docx"
+                    />
+                  <b-form-invalid-feedback id="input-1-live-feedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
                 </b-form-group>
-                
+              </validation-provider>
             </b-col>
           </b-row>
-          
+
           <b-row align-h="center">
             <b-col md="mt-3">
               <b-button
@@ -233,6 +257,7 @@
                         type="submit"
                         variant="primary"
                         class="boton"
+                        :disabled="active"
                       >
                         Enviar
                       </b-button>
@@ -252,23 +277,23 @@
             centered
             title="Aviso"
           >
-            <b-card-text>
-              Se envio correctamente
-            </b-card-text>
+            <b-card-text> Se envio correctamente </b-card-text>
           </b-modal>
         </b-form>
-    </validation-observer>
+      </validation-observer>
+    </b-overlay>
   </div>
 </template>
 
 <script>
 import {
+  BOverlay,
   // BFormInvalidfeedback,
   // BFormSelect,
   // BCard,
   BCardText,
   BForm,
-  BFormSelect,
+  // BFormSelect,
   BFormInvalidFeedback,
   BFormInput,
   BFormTextarea,
@@ -292,15 +317,15 @@ import {
 } from 'vee-validate/dist/vee-validate.full'
 import axios from 'axios'
 import es from 'vee-validate/dist/locale/es.json'
-
 import Ripple from 'vue-ripple-directive'
 import swal from 'sweetalert2';
 
 localize('es', es)
 export default {
   components: {
+    BOverlay,
     BCardText,
-    BFormSelect,
+    // BFormSelect,
     BModal,
     BFormTextarea,
     // BFormSelect,
@@ -322,12 +347,17 @@ export default {
     // BAlert,
     // BContainer,
   },
+  directives: {
+    Ripple,
+  },
   data() {
     return {
+      show: false,
+      active : false,
       foods: [
         { value: null, text: 'Choose...' },
         { value: 'apple', text: 'Apple' },
-         { value: 'orange', text: 'Orange' },
+        { value: 'orange', text: 'Orange' },
       ],
       status: null,
       file: null,
@@ -349,9 +379,6 @@ export default {
       },
     }
   },
-  directives: {
-    Ripple,
-  },
   methods: {
     success() {
       swal.fire({
@@ -364,17 +391,32 @@ export default {
         icon: 'success',
       })
     },
+    error() {
+      swal.fire({
+        title: 'Error',
+        text: 'mensaje Error',
+        buttonsStyling: false,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        confirmButtonClass: 'btn btn-success',
+        icon: 'error',
+      })
+    },
     enviar() {
-      axios
-        .post('http://10.13.123.94:8010/api/v1/prueba', this.form)
-        .then(response => {
-          console.log(response)
-          this.success()
-          this.resetForm()
-        })
-        .catch(error => {
-          console.log(error)
-        })
+      this.show = true
+       axios
+         .post('http://10.13.123.94:8010/api/v1/prueba', this.form)
+         .then(response => {
+           console.log(response)
+           this.resetForm()
+           this.show = false
+           this.success()
+         })
+         .catch(error => {
+           this.show = false
+           console.log(error)
+           this.error()
+         })
     },
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null
@@ -418,19 +460,16 @@ export default {
 body {
   font-family: 'Montserrat', sans-serif;
 }
-
 .label-sm {
   font-size: 12px;
   font-weight: 600;
   color: #5e5873;
 }
-
 .label-xs {
   font-size: 10.5px;
   font-weight: 600;
   color: #5e5873;
 }
-
 .button {
   text-align: center;
   padding: 8px 18px;
@@ -440,26 +479,22 @@ body {
   margin-left: 80px;
   margin-right: 250px;
 }
-
 .button-outline-secondary {
   border: 3px solid #9f2241;
   background-color: transparent;
   color: #9f2241;
 }
-
 .button-primary {
   border-color: #235b4e;
   background-color: #235b4e;
   color: white;
   padding: 10px 10px;
 }
-
 .button-outline-primary {
   border: 1px solid #9f2241;
   background-color: transparent;
   color: #9f2241;
 }
-
 header {
   background-color: #ffffff;
   width: 100%;
@@ -562,7 +597,6 @@ header .responsive-header-menu ul li a:hover {
 header .responsive-header-menu ul li:last-child {
   margin-right: 0;
 }
-
 @media (max-width: 1180px) {
   header {
     background-color: #ffffff;
@@ -585,7 +619,6 @@ header .responsive-header-menu ul li:last-child {
 .content {
   margin-top: 100px;
 }
-
 .card-title-background {
   width: 100%;
   background-color: #235b4e;
@@ -601,19 +634,16 @@ header .responsive-header-menu ul li:last-child {
   color: #c99f50;
   margin: 0;
 }
-
 .title-card-form {
   font-size: 16px;
   font-weight: 600;
   color: #196957;
 }
-
 .footer-div {
   background-color: #bc955c;
   height: 7px;
   width: 100%;
 }
-
 .footer-container {
   background-color: #235b4e;
   color: #aec3be;
@@ -660,12 +690,10 @@ header .responsive-header-menu ul li:last-child {
 .footer-container .social-links li a {
   font-size: 24px;
 }
-
 @media (max-width: 750px) {
   .footer-container {
     text-align: center;
   }
-
   .social-links {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -687,53 +715,50 @@ header .responsive-header-menu ul li:last-child {
   height: 30px;
 }
 .nombre {
-  width: 90%;
+  width: 95%;
   margin-left: 50px;
   margin-right: 400px;
   font-weight: bold;
 }
-
 .correo {
-  width: 98%;
-  margin-left: -10px;
-  margin-right: 50px;
+  width: 97%;
+  margin-left: px;
+  margin-right: 70px;
   font-weight: bold;
 }
 .descripcion {
-  width: 94%;
-  margin-left: 51px;
-  margin-right: 10px;
+  width: 93%;
+  margin-left: 65px;
+  margin-right: 1674px;
   font-weight: bold;
 }
 .apartado {
   width: 94%;
-  margin-left: 47px;
+  margin-left: 48px;
   margin-right: -50px;
   font-weight: bold;
 }
 .hechos {
   width: 94%;
-  margin-left: 47px;
+  margin-left: 49px;
   margin-right: -50px;
   font-weight: bold;
 }
 .empresa {
-  width: 130%;
+  width: 75%;
   margin-left: 47px;
   margin-right: -50px;
   font-weight: bold;
 }
-
 .fecha {
-  width: 121%;
-  margin-right: 400px;
-  margin-left: -280px;
+  width: 85%;
+  margin-right: 500px;
+  margin-left: -100px;
   font-weight: bold;
 }
-
 .croquis {
-  width: 132%;
-  margin-right: 200px;
+  width: 120%;
+  margin-right: 400px;
   margin-left: -199px;
   padding: 2px 0;
   font-weight: bold;
@@ -745,7 +770,7 @@ header .responsive-header-menu ul li:last-child {
   height: 60px;
 }
 .estiloFecha {
-  margin-left: -65%;
+  margin-left: -16%;
   font-weight: bold;
 }
 </style>

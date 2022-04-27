@@ -5,8 +5,8 @@ export default [
     icon: 'HomeIcon',
   },
   {
-    title: 'Formulario',
-    route: 'formulario',
+    title: 'estradoElectronico',
+    route: 'estadoElectronico',
     icon: 'FileIcon',
   },
 ]

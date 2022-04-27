@@ -8,10 +8,9 @@
     </div>
     <div class="contenedor">
       <b-img
+        class="imagen"
         :src="require('@/imagenes/title-background.svg')"
         alt="Image 1"
-        :height="35.9"
-        class="imagen"
       />
     </div>
   </div>
@@ -58,6 +57,7 @@ export default {
 .imagen {
   background-size: 2000px;
   border-radius: 15px;
-  margin-left: 10%;
+  margin-left: auto;
+  width: 100%;
 }
 </style>

@@ -1,59 +1,57 @@
 <template>
-  <div class="header">
-    <div class="container">
-      <div class="header-content">
-        <div class="header-logo">
-          <a href="#inicio">
-            <b-img
-              :src="require('@/imagenes/cdmx-ssc-color.svg')"
-              alt="Image 1"
-              :height="50"
+  <div class="formulario">
+    <div class="header-content">
+      <div class="header-logo">
+        <a
+          class="logo"
+          href="#inicio"
+        >
+          <b-img
+            :src="require('@/imagenes/cdmx-ssc-color.svg')"
+            alt="Image 1"
+            :height="50"
+          >
             />
+          </b-img></a>
+      </div>
+      <div class="header-menu">
+        <ul>
+          <a
+            href="#inicio"
+            class="link"
+          >
+            <li>Seguridad Privada</li>
           </a>
-        </div>
-        <div class="header-menu">
-          <ul>
+          <a
+            href="#inicio"
+            class="link"
+          >
+            <li>Estrado Electrónico</li>
+          </a>
+        </ul>
+      </div>
+      <div class="header-icon">
+        <i
+          id="menu"
+          class="fas fa-bars"
+        />
+      </div>
+      <div class="responsive-header-menu">
+        <ul>
+          <li>
             <a
               href="#inicio"
-              class="link"
-            >
-              <li>Seguridad Privada</li>
-            </a>
-            <a
-              href="#inicio"
-              class="link"
-            />
-            <a
-              href="#inicio"
-              class="link"
-            >
-              <li>Estrado Electrónico</li>
-            </a>
-          </ul>
-        </div>
-        <div class="header-icon">
-          <i
-            id="menu"
-            class="fas fa-bars"
-          />
-        </div>
-        <div class="responsive-header-menu">
-          <ul>
-            <li>
-              <a
-                href="#inicio"
-                class="link movement"
-              >Seguridad Privada</a>
-            </li>
+              class="link movement"
+            >Seguridad Privada</a>
+          </li>
 
-            <li>
-              <a
-                href="#quienes-somos"
-                class="link movement"
-              >Estrado Electrónico</a>
-            </li>
-          </ul>
-        </div>
+          <li>
+            <a
+              href="#quienes-somos"
+              class="link movement"
+            >Estrado Electrónico</a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -89,13 +87,14 @@ export default {
   -ms-flex-align: center;
   align-items: center;
 }
-.header-content .header-logo {
+.header-content {
   width: 100%;
-  margin: 2%;
+  margin: 1%;
 }
+
 .header-menu {
   width: 300%;
-  margin: 10;
+  margin: 2%;
 }
 .header-menu ul {
   display: -webkit-box;
@@ -114,8 +113,8 @@ export default {
 }
 .header-menu ul a {
   margin-right: 20px;
-  padding: 5px 0;
-  border-bottom: 5px solid white;
+  padding: 5px 5;
+  border-bottom: 2px solid white;
   -webkit-transition: 0.2s ease-in-out all;
   transition: 0.2s ease-in-out all;
   text-decoration: none;
@@ -126,6 +125,9 @@ export default {
   font-size: 10.8px;
   -webkit-transition: 0.2s ease-in-out all;
   transition: 0.2s ease-in-out all;
+  margin-left: -55%;
+  margin-right: -200%;
+  font-weight: bold;
 }
 .header-menu ul a:hover {
   border-bottom: 4px solid #235b4e;
@@ -181,7 +183,7 @@ export default {
     display: block;
   }
   .header-content .header-logo {
-    width: 5px;
+    width: 2px;
     height: 200px;
   }
   .header-content .header-icon {
@@ -200,5 +202,9 @@ export default {
 }
 .contenedor {
   width: 10%;
+}
+.logo {
+  margin-left: 20%;
+  margin-right: 2%;
 }
 </style>

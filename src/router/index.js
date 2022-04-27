@@ -26,8 +26,8 @@ const router = new VueRouter({
     },
     {
 
-      path: '/formulario',
-      name: 'formulario',
+      path: '/estadoElectronico',
+      name: 'estadoElectronico',
       component: () => import('@/views/SecondPage.vue'),
       meta: {
         layout: 'full',
