@@ -20,7 +20,7 @@
             </b-col>
             <b-col cols="5">
               <div class="texto textoE">
-                Estrado Electronico
+                Estrado Electrónico
               </div>
             </b-col>
           </b-row>
@@ -57,13 +57,13 @@ export default {
   }
 
   .texto:hover {
-    border-bottom: 4px solid #235b4e;
+    border-bottom: 3px solid #235b4e;
     color: #235b4e;
   }.textoE {
-    color: #235b4e;
+    color: gray;
   }
   .espacio{
     margin-bottom: 30px;
-    margin-top: 20px;
+    margin-top: 25px;
   }
 </style>

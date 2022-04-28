@@ -6,7 +6,7 @@
     >
       <validation-observer
         ref="observer"
-        v-slot="{ invalid,handleSubmit }"
+        v-slot="{ invalid, handleSubmit }"
       >
         <br>
         <label
@@ -113,7 +113,6 @@
             >
               <b-form-file
                 v-model="form.apartadoPruebas"
-
                 :state="Boolean(form.apartadoPruebas)"
                 browse-text="Buscar"
                 placeholder="Selecciona un documento y arrastra aqui..."
@@ -223,7 +222,6 @@
                   <b-form-file
                     v-model="form.croquisOficina"
                     :state="Boolean(form.croquisOficina)"
-
                     browse-text="Buscar"
                     placeholder="Selecciona un documento y arrastra aqui..."
                     accept=".jpg, .png, .gif, .pdf, .docx"
@@ -388,7 +386,7 @@ export default {
     success() {
       swal.fire({
         title: 'Correcto',
-        text: 'mensaje Correcto',
+        text: 'Se envío correctamente',
         buttonsStyling: false,
         allowOutsideClick: false,
         allowEscapeKey: false,
@@ -459,252 +457,7 @@ export default {
   font-weight: bolder;
   width: 270px;
 }
-.buzon {
-  font-weight: bolder;
-}
-body {
-  font-family: 'Montserrat', sans-serif;
-}
-.label-sm {
-  font-size: 12px;
-  font-weight: 600;
-  color: #5e5873;
-}
-.label-xs {
-  font-size: 10.5px;
-  font-weight: 600;
-  color: #5e5873;
-}
-.button {
-  text-align: center;
-  padding: 8px 18px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: 500;
-  margin-left: 80px;
-  margin-right: 250px;
-}
-.button-outline-secondary {
-  border: 3px solid #9f2241;
-  background-color: transparent;
-  color: #9f2241;
-}
-.button-primary {
-  border-color: #235b4e;
-  background-color: #235b4e;
-  color: white;
-  padding: 10px 10px;
-}
-.button-outline-primary {
-  border: 1px solid #9f2241;
-  background-color: transparent;
-  color: #9f2241;
-}
-header {
-  background-color: #ffffff;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  -webkit-box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.089);
-  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.089);
-}
-header .header-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-header .header-content .header-logo {
-  width: 500px;
-}
-header .header-content .header-menu {
-  width: 10%;
-  margin-left: 60%;
-}
-header .header-content .header-menu ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 0;
-  list-style: none;
-  margin: 0;
-  height: 80px;
-}
-header .header-content .header-menu ul a {
-  margin-right: 100px;
-  padding: 2px 0;
-  border-bottom: 1px solid white;
-  -webkit-transition: 0.2s ease-in-out all;
-  transition: 0.2s ease-in-out all;
-  text-decoration: none;
-  color: gray;
-}
-header .header-content .header-menu ul a li {
-  font-weight: 600;
-  font-size: 10.8px;
-  -webkit-transition: 0.2s ease-in-out all;
-  transition: 0.2s ease-in-out all;
-}
-header .header-content .header-menu ul a:hover {
-  border-bottom: 2px solid #235b4e;
-  color: #235b4e;
-}
-header .header-content .header-menu ul a:last-child {
-  margin-right: 0;
-}
-header .header-content .header-menu ul li:last-child {
-  margin-right: 0;
-}
-header .header-content .header-icon {
-  display: none;
-}
-header .responsive-header-menu {
-  display: none;
-  width: 100%;
-}
-header .responsive-header-menu ul {
-  height: 100vh;
-  display: block;
-  padding: 0;
-  list-style: none;
-  margin: 0;
-}
-header .responsive-header-menu ul li {
-  font-size: 10.8px;
-  text-align: center;
-  border-top: 1px solid #e6e6e6;
-}
-header .responsive-header-menu ul li a {
-  display: block;
-  padding: 32px 0;
-  color: black;
-  font-weight: 600;
-  -webkit-transition: 0.2s ease-in-out all;
-  transition: 0.2s ease-in-out all;
-}
-header .responsive-header-menu ul li a:hover {
-  color: #235b4e;
-  text-decoration: none;
-  margin-right: 90%;
-}
-header .responsive-header-menu ul li:last-child {
-  margin-right: 0;
-}
-@media (max-width: 1180px) {
-  header {
-    background-color: #ffffff;
-  }
-  header .header-content {
-    height: 100px;
-  }
-  header .header-content .header-menu {
-    display: none;
-  }
-  header .header-content .header-logo {
-    width: 243px;
-  }
-  header .header-content .header-icon {
-    display: block;
-    cursor: pointer;
-    font-size: 18px;
-  }
-}
-.content {
-  margin-top: 100px;
-}
-.card-title-background {
-  width: 100%;
-  background-color: #235b4e;
-  padding: 30px 34px 64px 34px;
-  border-radius: 10px;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: 1450px;
-}
-.card-title-background .title {
-  font-size: 26px;
-  font-weight: 600;
-  color: #c99f50;
-  margin: 0;
-}
-.title-card-form {
-  font-size: 16px;
-  font-weight: 600;
-  color: #196957;
-}
-.footer-div {
-  background-color: #bc955c;
-  height: 7px;
-  width: 100%;
-}
-.footer-container {
-  background-color: #235b4e;
-  color: #aec3be;
-  padding: 30px 0;
-  font-size: 12px;
-}
-.footer-container .footer-img {
-  width: 260px;
-}
-.footer-container .title {
-  color: white;
-  font-weight: 500;
-}
-.footer-container .info p:last-child {
-  margin-bottom: 0;
-}
-.footer-container ul {
-  list-style: none;
-  padding-left: 0;
-}
-.footer-container ul li {
-  margin-bottom: 6px;
-}
-.footer-container ul li a {
-  color: #aec3be;
-  text-decoration: none;
-  -webkit-transition: 0.2s ease-in-out all;
-  transition: 0.2s ease-in-out all;
-}
-.footer-container ul li a:hover {
-  color: white;
-}
-.footer-container .social-links {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.footer-container .social-links li {
-  margin-right: 24px;
-}
-.footer-container .social-links li:last-child {
-  margin-right: 0;
-}
-.footer-container .social-links li a {
-  font-size: 24px;
-}
-@media (max-width: 750px) {
-  .footer-container {
-    text-align: center;
-  }
-  .social-links {
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
-}
+
 .formulario {
   width: 92%;
   margin-left: 4%;
