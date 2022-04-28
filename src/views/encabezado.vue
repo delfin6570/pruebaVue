@@ -1,67 +1,42 @@
 <template>
-  <div class="formulario">
-    <div class="header-content">
-      <div class="header-logo">
-        <a
-          class="logo"
-          href="#inicio"
-        >
+  <div class="espacio">
+    <b-container class="escudo">
+      <b-row align-h="between margen">
+        <b-col cols="9">
           <b-img
-            :src="require('@/imagenes/cdmx-ssc-color.svg')"
+            :src="require('@/assets/ssc1.png')"
             alt="Image 1"
             :height="50"
-          >
-            />
-          </b-img></a>
-      </div>
-      <div class="header-menu">
-        <ul>
-          <a
-            href="#inicio"
-            class="link"
-          >
-            <li>Seguridad Privada</li>
-          </a>
-          <a
-            href="#inicio"
-            class="link"
-          >
-            <li>Estrado Electrónico</li>
-          </a>
-        </ul>
-      </div>
-      <div class="header-icon">
-        <i
-          id="menu"
-          class="fas fa-bars"
-        />
-      </div>
-      <div class="responsive-header-menu">
-        <ul>
-          <li>
-            <a
-              href="#inicio"
-              class="link movement"
-            >Seguridad Privada</a>
-          </li>
-
-          <li>
-            <a
-              href="#quienes-somos"
-              class="link movement"
-            >Estrado Electrónico</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+            :width="300"
+            :margin="300"
+          />
+        </b-col>
+        <b-col class="3">
+          <b-row align-h="end">
+            <b-col cols="4">
+              <div class="texto textoE">
+                Seguridad Privada
+              </div>
+            </b-col>
+            <b-col cols="5">
+              <div class="texto textoE">
+                Estrado Electronico
+              </div>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 <script>
-import { BImg } from 'bootstrap-vue'
+import { BImg, BCol, BRow } from 'bootstrap-vue'
 
 export default {
   components: {
     BImg,
+    BCol,
+    BRow,
   },
 
   data() {
@@ -76,142 +51,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-.header-content {
-  width: 100%;
-  margin: 1%;
-}
+  .margen {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
 
-.header-menu {
-  width: 300%;
-  margin: 2%;
-}
-.header-menu ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 0;
-  list-style: none;
-  margin: 0;
-  height: 10%px;
-}
-.header-menu ul a {
-  margin-right: 20px;
-  padding: 8px 8px;
-  border-bottom: 2px solid white;
-  -webkit-transition: 0.2s ease-in-out all;
-  transition: 0.2s ease-in-out all;
-  text-decoration: none;
-  color: black;
-}
-.header-menu ul a li {
-  font-weight: 600;
-  font-size: 10.8px;
-  -webkit-transition: 0.2s ease-in-out all;
-  transition: 0.2s ease-in-out all;
-  margin-left: -55%;
-  margin-right: -200%;
-  font-weight: bold;
-}
-.header-menu ul a:hover {
-  border-bottom: 4px solid #235b4e;
-  color: #235b4e;
-  
-}
-.header-menu ul a:last-child {
-  margin-right: 0px;
-}
-.header-menu ul li:last-child {
-  margin-left: -70%;
-  margin-right: -200%;
-}
-.header-icon {
-  display: none;
-}
-.responsive-header-menu {
-  display: none;
-  width: 50%;
-}
-.responsive-header-menu ul {
-  height: 100vh;
-  display: block;
-  padding: 0;
-  list-style: none;
-  margin: 0;
-}
-.responsive-header-menu ul li {
-  font-size: 10.8px;
-  text-align: center;
-  border-top: 1px solid #e6e6e6;
-}
-.responsive-header-menu ul li a {
-  display: block;
-  padding: 32px 0;
-  color: black;
-  font-weight: 600;
-  -webkit-transition: 0.2s ease-in-out all;
-  transition: 0.2s ease-in-out all;
-}
-.responsive-header-menu ul li a:hover {
-  color: #235b4e;
-  text-decoration: none;
-}
-.responsive-header-menu ul li:last-child {
-  margin-right: 0;
-}
-
-@media (max-width: 1180px) {
-  .header-content {
-    height: 80px;
+  .texto:hover {
+    border-bottom: 4px solid #235b4e;
+    color: #235b4e;
+  }.textoE {
+    color: #235b4e;
   }
-  .header-content .header-menu {
-    display: none;
-    display: block;
+  .espacio{
+    margin-bottom: 30px;
+    margin-top: 20px;
   }
-  .header-content .header-logo {
-    width: 2px;
-    height: 200px;
-  }
-  .header-content .header-icon {
-    display: block;
-    cursor: pointer;
-    font-size: 210%;
-  }
-}
-.header {
-  margin-bottom: 10px;
-}
-.container {
-  width: 92%;
-  margin-left: 4%;
-  margin-right: 2%;
-}
-.contenedor {
-  width: 10%;
-}
-.logo {
-  margin-left: 20%;
-  margin-right: 2%;
-}
-.link {
-  width: 7%;
-  margin-left: -1%;
-  margin-right: 2%;
-}
 </style>
